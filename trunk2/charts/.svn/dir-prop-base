@@ -1,0 +1,10 @@
+K 11
+bugtraq:url
+V 45
+http://82.152.138.203:90/issues/show/%BUGID% 
+K 10
+svn:ignore
+V 5
+2009
+
+END

@@ -1,0 +1,25 @@
+OPTIMIZE TABLE users;
+OPTIMIZE TABLE tags;
+OPTIMIZE TABLE schedule;
+OPTIMIZE TABLE log;
+OPTIMIZE TABLE links;
+OPTIMIZE TABLE image_store;
+OPTIMIZE TABLE imageJtag;
+OPTIMIZE TABLE download;
+OPTIMIZE TABLE content;
+OPTIMIZE TABLE config;
+OPTIMIZE TABLE permission;
+OPTIMIZE TABLE permission_pages;
+
+ANALYZE TABLE users;
+ANALYZE TABLE tags;
+ANALYZE TABLE schedule;
+ANALYZE TABLE log;
+ANALYZE TABLE links;
+ANALYZE TABLE image_store;
+ANALYZE TABLE imageJtag;
+ANALYZE TABLE download;
+ANALYZE TABLE content;
+ANALYZE TABLE config;
+ANALYZE TABLE permission;
+ANALYZE TABLE permission_pages;

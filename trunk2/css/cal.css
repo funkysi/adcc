@@ -1,0 +1,83 @@
+#dummy *{ 
+    font-family:Trebuchet MS; 
+    font-size: 9pt; 
+    padding: 0px; 
+}
+
+#dummy td.today{
+background: #fff;
+color:#f70400;
+border:1px solid #000;
+}
+
+#dummy td{
+text-align:center;
+height:20px;
+width:25px;
+padding-top:2px;
+}
+
+#dummy td.notthismonth{
+background: #abc;
+border:1px solid #000;
+}
+
+#dummy td.event{
+background: #abf;
+border:1px solid #000;
+}
+#dummy td.club-event{
+background: #f70400;
+color:#fff;
+border:1px solid #000;
+}
+#dummy td.thismonth{
+border:1px solid #000;
+}
+
+table.call{
+
+float:right;
+
+}
+table p.wide{
+
+width:140px;
+}
+/*
+##################################
+*/
+table.cal td{
+	padding:0;
+}
+table.cal div#main2, table.cal div#main{
+	text-align:center;
+}
+table.cal td.monday{
+	padding-right:7px;
+	text-align:center;
+}
+table.cal td.tuesday{
+	padding-right:7px;
+	text-align:center;
+}
+table.cal td.wednesday{
+	padding-right:8px;
+	text-align:center;
+}
+table.cal td.thursday{
+	padding-right:9px;
+	text-align:center;
+}
+table.cal td.friday{
+	padding-right:15px;
+	text-align:center;
+}
+table.cal td.saturday{
+	padding-right:15px;
+	text-align:center;
+}
+table.cal td.sunday{
+	padding-right:7px;
+	text-align:center;
+}

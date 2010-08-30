@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/srv/svn/repos/adcc/!svn/ver/146/trunk/membership
+END
+mem_delete.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/srv/svn/repos/adcc/!svn/ver/1/trunk/membership/mem_delete.php
+END
+mem_insert.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/srv/svn/repos/adcc/!svn/ver/146/trunk/membership/mem_insert.php
+END
+mem_edit.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/srv/svn/repos/adcc/!svn/ver/146/trunk/membership/mem_edit.php
+END
+mem_edit2.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/srv/svn/repos/adcc/!svn/ver/1/trunk/membership/mem_edit2.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/srv/svn/repos/adcc/!svn/ver/146/trunk/membership/index.php
+END

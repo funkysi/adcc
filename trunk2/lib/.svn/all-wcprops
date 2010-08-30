@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/srv/svn/repos/adcc/!svn/ver/143/trunk/lib
+END
+ganymed.jar
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/srv/svn/repos/adcc/!svn/ver/83/trunk/lib/ganymed.jar
+END
+svnClientAdapter.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/srv/svn/repos/adcc/!svn/ver/83/trunk/lib/svnClientAdapter.jar
+END
+svnant.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/srv/svn/repos/adcc/!svn/ver/83/trunk/lib/svnant.jar
+END
+JAVAHL-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/srv/svn/repos/adcc/!svn/ver/83/trunk/lib/JAVAHL-LICENSE
+END
+SVNCLIENTADAPTER-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/srv/svn/repos/adcc/!svn/ver/83/trunk/lib/SVNCLIENTADAPTER-LICENSE
+END
+mysql-connector-java-3.1.12.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/srv/svn/repos/adcc/!svn/ver/86/trunk/lib/mysql-connector-java-3.1.12.jar
+END
+svnjavahl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/srv/svn/repos/adcc/!svn/ver/83/trunk/lib/svnjavahl.jar
+END
+svnkit.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/srv/svn/repos/adcc/!svn/ver/83/trunk/lib/svnkit.jar
+END

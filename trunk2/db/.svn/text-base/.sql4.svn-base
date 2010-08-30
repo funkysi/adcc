@@ -1,0 +1,22 @@
+update config set setting='http://adcclive.funkygoth/' where name='url';
+update config set setting='funkysi1701@gmail.com' where name='email';
+update users set email='funkysi1701@gmail.com';
+update config set setting='funkysi1701@gmail.com' where name='notifyemail';
+update users set passw='b55766b08fdad449afd8aeeddfd77fab';
+update config set setting='Test Website' where name='title';
+update config set setting='<p>
+<a href="http://www.awardsforall.org.uk/">
+<img class="afa" src="http://adcclive.funkygoth/imgs/site/awards.jpg" alt="Awards for All" />
+</a>
+</p>' where name='awa';
+#ALTER TABLE  `content` ADD  `in_use` INT NOT NULL;
+#drop table error;
+#drop table counter;
+#drop table log;
+#drop table email_log;
+#delete from config where name='localmap1';
+#delete from config where name='localmap2';
+update config set setting='' where name='Analytics';
+update config set setting='' where name='Sitemap';
+update config set setting='http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAARQwQa1D1kfa4evMahiorVxReSkLtDjGgHNyn3Z0QC1W3QR80lRQt5_YohC6wIhYthvh4m3wyBHYnxQ' where name='livemap1';
+

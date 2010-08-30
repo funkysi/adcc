@@ -1,0 +1,3 @@
+find */*.php | while read FILE; do
+php -w $FILE > /var/www/html/private/trunk/$FILE;
+done;
