@@ -1,1 +1,0 @@
-/usr/local/bin/mysql --user=adcc --password=cvZydwq web12-adcc < /usr/local/psa/home/vhosts/arnoldanddistrictcameraclub.org.uk/httpdocs/db/optimise.sql
