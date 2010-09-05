@@ -1,17 +1,12 @@
 <?php 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
+ 
 	$title=" - Edit Home Page";	
-	$tinymce=true;
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php 
 	$area="index";
-	$page="home";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -42,7 +37,7 @@
 
 	$form.= "<label for=\"text\">Main Text: </label><textarea id=\"text\" cols=\"35\" rows=\"5\" name=\"text\" >$text</textarea><br/>";
 
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Add\" /> </fieldset></form>";
 
 	#on first opening display the form
@@ -62,8 +57,9 @@
 
 	#add the form data to the guestbook database table
 	{
+ 
 		#connect to MySQL
-		include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
+		include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
 		#create the SQL query
 		if($text or $title)
 		{
@@ -78,7 +74,8 @@
 		#confirm the entry and display a link to view guestbook
 		if($rs)
 		{
-			header("Location:index.php");exit();
+header("Location:index.php");exit();
+			#header("Location:index2.php" ); exit();
 		}
 	}
 	echo($msg);

@@ -1,17 +1,12 @@
 <?php 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
+ 
 	$title=" - Edit Our Purpose"; 
-	$tinymce=true;
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php
 	$area="purpose";
-	$page="purpose";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -20,7 +15,7 @@
 <?php
 
 	$id=$_GET['id'];
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 	$query=" SELECT * FROM content WHERE id='$id'";
 	$result=mysql_query($query);

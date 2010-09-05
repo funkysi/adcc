@@ -1,7 +1,7 @@
 <?php
 $terms = array(); // create empty array
 $maximum = 0; // $maximum is the highest counter for a search term
-include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
+include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
 $query = mysql_query("SELECT count( image_store.image ) AS count, users.username,users.displayname, users.lastname
 FROM `users`
 JOIN image_store ON image_store.author_id = users.username

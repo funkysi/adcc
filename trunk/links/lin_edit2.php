@@ -1,17 +1,11 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Edit Links Page";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php';  
 ?>
 <body>
 <?php 
 	$area="links";
-	$page="links";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';  
 ?>
 <div class="left-content padding">

@@ -11,5 +11,5 @@
 		$search = null;
 	}
 	else $search=$_POST['search'];
-	echo "<div class=\"search\"><form action=\"http://".$_SERVER['HTTP_HOST']."/gall/gall_search.php?search=$search&amp;result=true\" method=\"post\"><p class=\"padding\"><input value=\"$search\" id=\"search\" type=\"text\" name=\"search\" /><br/><input type=\"submit\" class=\"butt search\" name=\"submit\" value=\"Search Gallery\" /></p></form>";
+	echo "<div class=\"search\"><form action=\"http://".$_SERVER['HTTP_HOST']."/gall/gall_search.php?search=$search&result=true\" method=\"post\"><p class=\"padding\"><input value=\"$search\" id=\"search\" type=\"text\" name=\"search\" /><br/><input type=\"submit\" class=\"butt\" name=\"submit\" value=\"Search Gallery\" /></p></form>";
 ?>

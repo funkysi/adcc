@@ -1,11 +1,6 @@
 <?php
-	#include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
-	$page="createuser";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
+	
 	$self = $_SERVER['PHP_SELF'];
 	$date = date("Y-m-d H:i:s");
 	
@@ -54,7 +49,7 @@
 	<option value=\"0\" >Full Access</option>
 	<option value=\"1\" selected=\"selected\">Upload Only</option> </select>";
 	$form.= "<br/> ";
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Create\" /> </fieldset></form>";
 
 	if($username==null )
@@ -62,7 +57,7 @@
 		$title=" - Create User Accounts"; 
 		include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 		echo "<body>";
-		$area="members";
+		$area="";
 		include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 		echo "<div class=\"left-content padding\"><h2 class=\"middle bold\">Create User Accounts </h2>";
 		echo $form;
@@ -94,7 +89,7 @@
 				$rs = createusers($username,$passw,$displayname,$lastname,$level);
 				include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 				sendemail("createuser",$auth,$displayname,$lastname,$username);
-				header("Location:users_edit.php?type=$username" );exit();
+				header("Location:users_edit.php" );exit();
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
  
 	$title=" - Competition";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
@@ -7,12 +7,6 @@
 <body>
 <?php 
 	$area="competition";
-	$page="competition";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -80,7 +74,7 @@
 	$form.= "<label for=\"score\">Score: </label><input id=\"score\" type=\"text\" name=\"score\" size=\"35\" />";
 	$form.= "<br/><input type=\"hidden\" name=\"id\" value=\"$id\" /> ";
 
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Add\" /> </fieldset></form>";
 
 

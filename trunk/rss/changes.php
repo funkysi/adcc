@@ -1,7 +1,7 @@
 <?php
 	header("Content-Type: text/xml;charset=iso-8859-1");  //setup xml header 
 
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';  //connect to db
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';  //connect to db
 	include $_SERVER["DOCUMENT_ROOT"].'/db/dbconfig.php';
 	$url = getconfig('url');
 	echo '<?xml version="1.0" encoding="UTF-8"?>  
@@ -13,7 +13,7 @@ We are a group of amateur photographers and enthusiasts dedicated to promoting p
 accomplished amateur.</description>
  <language>en-gb</language>
  <image> 
-<url>'.$url.'imgs/site/adccnew_ie6.png</url> 
+<url>'.$url.'imgs/adccnew_ie6.png</url> 
 <title>Title of image</title> 
 <link>'.$url.'</link> 
 <width>50</width> 
@@ -42,9 +42,9 @@ $datetime = mysql_result($result,$i,"date"); //the date stored
 		$year = substr($datetime, 0, 4);
 $month = substr($datetime,5,2);
 $day = substr($datetime, 8,2);
-$hour = substr($datetime, 11,2);
-$min = substr($datetime, 14,2);
-$sec = substr($datetime, 17,2);
+$hour = substr($datetime, 10,2);
+$min = substr($datetime, 10,2);
+$sec = substr($datetime, 10,2);
 $orgdate=date("D, d M Y H:i:s O", mktime($hour,$min,$sec,$month,$day,$year));
 		echo   
 	    '  

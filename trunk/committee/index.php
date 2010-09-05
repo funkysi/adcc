@@ -5,8 +5,6 @@
 <body>
 <?php 
 	$area="contact";
-	$page="committee";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -22,7 +20,7 @@
 	<?php 
 	if($count==0) 
 		{
-			if($perm==true ) echo "<ul><li class=\"prev padding add\"><a href=\"../../committee/com_insert.php\">Insert New</a></li></ul>";
+			if(isset($_COOKIE['level_new']) and isset($_COOKIE['auth_new']) and $_COOKIE['level_new']==0 ) echo "<ul><li class=\"prev padding\"><a href=\"../../committee/com_insert.php\">Insert New</a></li></ul>";
 		}
 		?>
 	
@@ -46,10 +44,10 @@
 ?>
 </p>
 <?php
-		if($perm==true ) 
-			echo "<ul class=\"middle\"><li class=\"float padding add\"><a href=\"com_insert.php\">Insert New Comittee Member</a></li>
-			<li class=\"float padding edit\"><a href=\"com_edit.php?id=".$ans[$i]['id']."\">Edit ".$ans[$i]['displayname']." ".$ans[$i]['lastname']."</a></li>
-			<li class=\"float padding delete\"><a href=\"com_delete.php?id=".$ans[$i]['id']."\">Delete ".$ans[$i]['displayname']." ".$ans[$i]['lastname']."</a></li></ul>";
+		if(isset($_COOKIE['level_new']) and isset($_COOKIE['auth_new']) and $_COOKIE['level_new']==0 ) 
+			echo "<ul class=\"padding middle\"><li class=\"float\"><a href=\"com_insert.php\">Insert New Comittee Member</a></li>
+			<li class=\"float\"><a href=\"com_edit.php?id=".$ans[$i]['id']."\">Edit ".$ans[$i]['displayname']." ".$ans[$i]['lastname']."</a></li>
+			<li class=\"float\"><a href=\"com_delete.php?id=".$ans[$i]['id']."\">Delete ".$ans[$i]['displayname']." ".$ans[$i]['lastname']."</a></li></ul>";
 ?>
 </td>
 <?php 

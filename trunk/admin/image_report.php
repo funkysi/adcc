@@ -66,7 +66,7 @@
 			$image740size = filesize($image_740);
 			fclose($file);
 			#echo "<tr><td><img src=\"$image_100\"></td><td>".filesize_format($imagesize)."</td><td>".filesize_format($image100size)."</td><td>".filesize_format($image140size)."</td><td>".filesize_format($image250size)."</td><td>".filesize_format($image580size)."</td><td>".filesize_format($image740size)."</td></tr>";
-			#$total+=$imagesize;
+			$total+=$imagesize;
 			$total100+=$image100size;
 			$total140+=$image140size;
 			$total250+=$image250size;
@@ -90,8 +90,8 @@
 
 	echo "</table><p class=\"middle\">";
 	include_once $_SERVER["DOCUMENT_ROOT"].'/charts/php-ofc-library/open_flash_chart_object.php';
-	open_flash_chart_object( 300, 300, 'http://'. $_SERVER['HTTP_HOST'] .'/charts/images.php',false,'http://'. $_SERVER['HTTP_HOST'].'/charts/' );
-open_flash_chart_object( 600, 300, 'http://'. $_SERVER['HTTP_HOST'] .'/charts/uploadspermonth.php',false,'http://'. $_SERVER['HTTP_HOST'].'/charts/' );
+	open_flash_chart_object( 300, 300, 'http://'. $_SERVER['SERVER_NAME'] .'/charts/images.php',false,'http://'. $_SERVER['SERVER_NAME'].'/charts/' );
+open_flash_chart_object( 600, 300, 'http://'. $_SERVER['SERVER_NAME'] .'/charts/uploadspermonth.php',false,'http://'. $_SERVER['SERVER_NAME'].'/charts/' );
 
 ?></p>
 </div>

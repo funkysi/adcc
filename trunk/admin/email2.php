@@ -1,7 +1,7 @@
 <?php
 	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
 
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$email=$_REQUEST['email'];
 	$sql = "update config set setting='$email' where name='email'";
     $rs = mysql_query($sql) or die ("Could not execute SQL query");

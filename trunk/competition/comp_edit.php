@@ -1,5 +1,5 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
  
 	$title=" - Competition";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
@@ -7,12 +7,6 @@
 <body>
 <?php 
 	$area="competition";
-	$page="competition";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -103,18 +97,18 @@
 		<input id="date" size ="5" type="text" name="year" value="<?php echo $year; ?>" /><br/>
 		<label>&nbsp;</label>
 		<input type="hidden" name="id" value="<?php echo $id; ?>" />
-		<input id="update" type="submit" value="Update" />
+		<input type="submit" value="Update" />
 	</fieldset>
 </form>
 <form action="comp_delete.php?id=<?php echo $id; ?>" method="post">
 	<fieldset>
 		<label>&nbsp;</label>
 		<input type="hidden" name="id" value="<?php echo $id; ?>" />
-		<input id="del" type="submit" value="Delete" />
+		<input type="submit" value="Delete" />
 	</fieldset>
 </form>
 
-<p class="middle padding"><span class="edit"><a href="comp2.php">Edit Other Competition Rounds</a></span>&nbsp;<span class="add"><a href="entries_insert.php?id=<?php echo $id; ?>">Add Competition Entries</a></span></p><br/>
+<p class="middle"><a href="comp2.php">Edit Other Competition Rounds</a><br/><a href="entries_insert.php?id=<?php echo $id; ?>">Add Competition Entries</a></p><br/>
 <?php
 	++$i;
 	}
@@ -132,12 +126,12 @@
 
 ?>
 <?php 
-		echo "<p class=\"middle padding\">".$row['image_title']." by ".$row['displayname']." ".$row['lastname']." ".$row['score']."pts</p>"; 
+		echo "<p class=\"middle\">".$row['image_title']." by ".$row['displayname']." ".$row['lastname']." ".$row['score']."pts</p>"; 
 ?>
-<div class="comm middle">
-	<span class="edit"><a href="entries_edit.php?id=<?php echo $row['id']; ?>&cid=<?php echo $id; ?>">Edit</a></span>
-	<span class="delete"><a href="entries_delete.php?id=<?php echo $row['id']; ?>&cid=<?php echo $id; ?>">Delete</a></span>
-</div>
+<ul class="comm middle">
+	<li><a href="entries_edit.php?id=<?php echo $row['id']; ?>&cid=<?php echo $id; ?>">Edit</a></li>
+	<li><a href="entries_delete.php?id=<?php echo $row['id']; ?>&cid=<?php echo $id; ?>">Delete</a></li>
+</ul>
 <?php } ?>
 </div>
 <?php 

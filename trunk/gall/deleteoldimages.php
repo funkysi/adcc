@@ -27,7 +27,7 @@
 			if ($row1['numrows1']+$row2['numrows2']+$row3['numrows3']>0  ) 
 			{
 				$name="Detected";
-				#echo $name;
+				echo $name;
 			}
 			else 
 			{

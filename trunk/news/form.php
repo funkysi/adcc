@@ -64,14 +64,13 @@
 		<input type="hidden" name="pid" value="<?php echo $pid; ?>"/>
 		<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 		<input type="hidden" name="image" value="<?php echo $image; ?>" />
-		<input type="hidden" name="prevUrl" value="<?php echo $prevUrl; ?>" />
 		<label>&nbsp;</label>
-		<input id="update" type="submit" value="Update" />
+		<input type="submit" value="Update" />
 	</fieldset>
 </form>
 <form action="new_delete.php?id=<?php echo $realid; ?>" method="post">
 	<fieldset>
 		<input type="hidden" name="id" value="<?php echo $id; ?>"/>
-		<label>&nbsp;</label><input id="del" type="submit" value="Delete" />
+		<label>&nbsp;</label><input type="submit" value="Delete" />
 	</fieldset>
 </form>

@@ -20,5 +20,4 @@ a:hover{
 a[href^="mailto:"] {
   background: url(../imgs/site/email.png) no-repeat right bottom;
   padding-right: 15px;
-
 }

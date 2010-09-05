@@ -55,22 +55,21 @@
 
 		echo "<div class=\"left-content padding\"><a name=\"content\"></a> <h2 class=\"middle bold\">Reset Forgotten Password</h2>
 		<form action = \"$self\" method = \"post\">
-	 		<fieldset class=\"login\">
-	 			<label class=\"bold\" for=\"username\">Username:</label>
+	 		<fieldset>
+	 			<label for=\"username\">Username:</label>
 	 			<input tabindex=\"1\" id=\"username\" alt=\"username\" type = \"text\" name = \"username\" value=\"$username\" /><br/>
-				<label class=\"bold\" for=\"email\">Email Address:</label>
-	 			<input tabindex=\"2\" class=\"email\" id=\"email\" alt=\"email\" type = \"text\" name = \"email\" value=\"$email\" /><br/>
+				<label for=\"email\">Email Address:</label>
+	 			<input tabindex=\"2\" id=\"email\" alt=\"email\" type = \"text\" name = \"email\" value=\"$email\" /><br/>
 				<label>&nbsp;</label>
-				<input tabindex=\"3\" id=\"login\" type = \"submit\" name=\"submit\" value = \"Reset\" />
-<a href=\"index.php\">Back</a>
+				<input tabindex=\"3\" type = \"submit\" name=\"submit\" value = \"Reset\" />
 	 		</fieldset>
 	 	</form>
-	<p class=\"padding\">Please enter your username and email address. </p><p>If you have not registered you email address with us this automatic service will not work and you will have to contact us with the email address below.</p> ";
+	<p>Please enter your username and email address. If you have not registered you email address with us this automatic service will not work and you will have to use the email address below.</p> ";
 
 	}
 	else if($username!=null and $result==0)
 	{
-		include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+		include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 		$query   = "SELECT COUNT(*) AS numrows FROM users where username='$username' and email = '$email'";
 		$result  = mysql_query($query) or die('Error, query failed');
@@ -120,17 +119,16 @@
 			include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 			echo "<div class=\"left-content padding\"><a name=\"content\"></a> <h2 class=\"middle bold\">Reset Forgotten Password</h2>";
 			echo "<form action = \"$self\" method = \"post\">
-			 		<fieldset class=\"login\">
-			 			<label class=\"bold\" for=\"username\">Username:</label>
+			 		<fieldset>
+			 			<label for=\"username\">Username:</label>
 			 			<input tabindex=\"1\" id=\"username\" alt=\"username\" type = \"text\" name = \"username\" value=\"$username\" /><br/>
-						<label class=\"bold\" for=\"email\">Email Address:</label>
+						<label for=\"email\">Email Address:</label>
 			 			<input tabindex=\"2\" id=\"email\" alt=\"email\" type = \"text\" name = \"email\" value=\"$email\" /><br/>
 						<label>&nbsp;</label>
 						<input tabindex=\"3\" type = \"submit\" name=\"submit\" value = \"Reset\" />
-<a href=\"index.php\">Back</a>
 			 		</fieldset>
 			 	</form>
-			<p class=\"padding\">Please enter your username and email address. </p><p>If you have not registered you email address with us this automatic service will not work and you will have to contact us with the email address below.</p> ";
+			<p>Please enter your username and email address. If you have not registered you email address with us this automatic service will not work and you will have to use the email address below.</p> ";
 		}
 	}	
 ?>

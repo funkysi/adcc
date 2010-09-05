@@ -1,7 +1,7 @@
 <?php
 	function curPageURL() {
  		$pageURL = 'http';
- 		if (isset($_SERVER["HTTPS"]) and $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+ 		if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
  		$pageURL .= "://";
  		if ($_SERVER["SERVER_PORT"] != "80") {
   			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
@@ -21,5 +21,8 @@
 	$file = fopen( $filename, "a");
 	fwrite( $file, "\"".$date."\",\"".curPageURL()."\",\"".curPageName()."\",\"".getenv("HTTP_REFERER")."\",\"".$auth."\",\"".$ip."\",\"".$_SERVER['HTTP_USER_AGENT']."\"\n");
 	fclose( $file);
-
+	#$content = $date." - ".curPageURL()." - ".curPageName()." - ".getenv("HTTP_REFERER")." - ".$auth." - ".$ip." - ".$_SERVER['HTTP_USER_AGENT']."\n";
+	#$to="funkysi1701@googlemail.com";
+	#mail($to,"Web Log ".curPageURL(),$content);
+chmod($filename,0777);
 ?>

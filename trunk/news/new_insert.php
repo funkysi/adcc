@@ -1,11 +1,5 @@
-
 <?php 
-	$page="news";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
 	$title=" - Insert News Page";
 	if(isset($_GET['id']))
 	{
@@ -17,25 +11,15 @@
 	{
 		$text = $_POST['text'];
 	}
-
 	if(isset($_POST['title']))
 	{
 		$title = $_POST['title'];
-	}
-	if(isset($_POST['title1']))
-	{
-		$title1 = $_POST['title1'];
 	}
 	if(isset($_POST['image']))
 	{
 		$image = $_POST['image'];
 	}
 	else $image = null;
-	if(isset($_POST['image1']))
-	{
-		$image1 = $_POST['image1'];
-	}
-	else $image1 = null;
 	if(isset($_POST['link']))
 	{
 		$link = $_POST['link'];
@@ -61,26 +45,23 @@
 		$submit = $_POST['submit'];
 	}
 	else $submit=null;
-	date_default_timezone_set('UTC');	
 	$nowy=date("Y");
 	$now=date("m");
 	$nowm=date("F");
 	$nowd=date("d");
-
 	#the html form
 	$form = "<form action=\"$self\" method=\"post\" enctype=\"multipart/form-data\"><fieldset>";
 	$form.= "<label for=\"text\">Main Text: </label><textarea id=\"text\" cols=\"50\" rows=\"10\" name=\"text\" ></textarea>";
 	$form.= "<br/> ";
-	$form.= "<label for=\"image\">Image: </label><input id=\"image\" type=\"file\" name=\"image\" ";
+	$form.= "<label for=\"image\">Image Url: </label><input id=\"image\" type=\"file\" name=\"image\" ";
 	$form.= "size=\"35\" /><br/> ";
 	$form.= "<label for=\"caption\">Image Caption: </label><input id=\"caption\" type=\"text\" name=\"title\" ";
 	$form.= "size=\"40\" /><br/> ";
-	$form.= "<input type=\"hidden\" value=\"0\" id=\"theValue\" />
-	<p><a href=\"javascript:;\" onclick=\"addEvent();\">Add Image</a></p>
-	<div id=\"myDiv\"> </div>";
 	$form.= "<label for=\"link\">Link Url: </label><input id=\"link\" type=\"text\" name=\"link\" ";
 	$form.= "size=\"40\" /><br/> ";
+
 	$form.= "<label for=\"day\">Date:</label> ";
+	$form.= "";
 	$form.="<select id=\"day\" name=\"day\">
 	<option value=\"$nowd\" selected=\"selected\">$nowd</option>
 	<option value=\"01\" >01</option>
@@ -131,8 +112,9 @@
 	</select><input size =\"5\" type=\"text\" name=\"year\" value=\"$nowy\" />";
 	$form.= "<br/>";
 
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
-	$form.= "value=\"Add News\" /> </fieldset>";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
+	$form.= "value=\"Add News\" /> </fieldset></form>";
+	$form.= "";
 
 	#on first opening display the form
 	if( !$submit )
@@ -163,7 +145,7 @@
 	{
 		$date=$year."-".$month."-".$day." 00:00:00";
 		#connect to MySQL
-		include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+		include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
  
 		$unique_name = date("U").".jpg";  
 		if( $_FILES['image']['name'] != "" )
@@ -182,44 +164,16 @@
 			image_resize(250,250,'250',$image);
 			image_resize(580,580,'580',$image);
 		}
-		$unique_name = date("U")."g.jpg";
-		if( $_FILES['image1']['name'] != "" )
-		{
-			if((substr($_FILES['image1']['name'],  -3)!="jpg" and substr($_FILES['image1']['name'],  -3)!="JPG"))
-			{
-				header("Location:new_insert.php?id=jpg");exit();
-			}
-			copy ( $_FILES['image1']['tmp_name'], '../imgs/photos/' . $unique_name ) 
-			or die( header("Location:$self?id=toobig") );
-			$image1 = '../imgs/photos/' . $unique_name;
-			#include $_SERVER["DOCUMENT_ROOT"].'/gall/image_resize.php'; 
-			image_resize(740,740,'740',$image1);
-			image_resize(100,100,'100',$image1);
-			image_resize(140,140,'140',$image1);
-			image_resize(250,250,'250',$image1);
-			image_resize(580,580,'580',$image1);
-		}
 	
 		$text = trim($text, "'");
 		$text= str_ireplace("<br>", "\n", $text);
 		$text= str_ireplace("<BR/>", "\n", $text);
-		$title=strip_tags($title);
-
 		#create the SQL query
 		if($text)
 		{
-			$sql = "insert into content (text,title, image, link,date,page) 
-			values (\"$text\",\"$title\",\"$image\", \"$link\", \"$date\",\"news\")"; 
-			$rs = mysql_query($sql) or die ("Could not execute SQL query".$sql);
-			$sql = "select id from content where date = '$date' and text = '$text'";
-			$rs = mysql_query($sql) or die ("Could not execute SQL query".$sql);
-			while ( $row = mysql_fetch_array( $rs ) )
-			{
-				$id = $row['id'];
-			}
-			$sql = "insert into content (title, image, page,additional) 
-			values (\"$title1\",\"$image1\", \"news\",\"$id\")"; 
-			$rs = mysql_query($sql) or die ("Could not execute SQL query".$sql);
+		$sql = "insert into content (text,title, image, link,date,page) 
+		values (\"$text\",\"$title\",\"$image\", \"$link\", \"$date\",\"news\")"; 
+		$rs = mysql_query($sql) or die ("Could not execute SQL query");
 		}
 
 		#confirm the entry and display a link to view guestbook
@@ -236,9 +190,8 @@
 			$msgbox.= "Back</a></div>";
 		}
 	}
-	$tinymce=true;
-	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php 
@@ -248,15 +201,9 @@
 <div class="left-content padding">
 	<a name="content"></a>
 	<h2 class="middle bold">Edit News</h2>
-
-<script type="text/javascript" src="../scripts/addimage.js" ></script>
 <?php 
-	echo $msgbox;
-?>	
-	
-
-	
-	</form>
+	echo $msgbox; 
+?>
 </div>
 <?php 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/footer.php';

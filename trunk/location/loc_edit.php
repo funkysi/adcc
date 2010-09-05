@@ -1,17 +1,11 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Location";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php';
 ?>
 <body>
 <?php 
 	$area="location";
-	$page="location";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 ?>
 	  
@@ -37,14 +31,14 @@
 		<label>&nbsp;</label>
 		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<input type="hidden" name="image" value="<?php echo $image; ?>" />
-		<input id="update" type="submit" value="Update" />
+		<input type="submit" value="Update" />
 	</fieldset>
 </form>
 <form action="loc_delete.php?id=<?php echo $id; ?>" method="post">
 	<fieldset>
 		<label>&nbsp;</label>
 		<input type="hidden" name="id" value="<?php echo $id; ?>" />
-		<input id="del" type="submit" value="Delete" />
+		<input type="submit" value="Delete" />
 	</fieldset>
 </form>
 </div>

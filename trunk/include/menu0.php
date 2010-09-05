@@ -54,7 +54,6 @@
 <li class="m"><a  href="/admin/access.php" <?php if ($area=="members") echo "class=\"x\""; ?>><?php echo $name; ?></a>
 <ul class="m second-level">
 <li class="m"><a href="/admin/pass.php">Change Password</a></li>
-<li class="m"><a href="/admin/permission.php">Change User Permissions</a></li>
 <li class="m"><a href="/admin/reset.php">Reset Password</a></li>
 <li class="m"><a href="/admin/create.php">Create Users</a></li>
 <li class="m"><a href="/admin/users_edit.php">Edit Users</a></li>

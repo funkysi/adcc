@@ -38,21 +38,20 @@
 	$date=date("Y-m-d H:i:s");
 
 	echo"<p>Please type in key words to search the gallery, please bear in mind that only image title and descriptions and the authors names are currently indexed in this search.</p>";
-	echo "<form class=\"\" action=\"$self?search=$search&result=true\" method=\"post\"><fieldset>
-	<label for=\"search\">&nbsp;</label>
-	<input value=\"$search\" type=\"text\" id=\"search\" name=\"search\" /><br/>
-	<label>&nbsp;</label>
-	<input class=\"search\" type=\"submit\" name=\"submit\" value=\"Search\" />
-</fieldset></form>";
+	echo "<form class=\"big\" action=\"$self?search=$search&result=true\" method=\"post\">
+	<p class=\"middle\">
+	<input value=\"$search\" type=\"text\" name=\"search\" />
+	<input type=\"submit\" name=\"submit\" value=\"Search\" />
+</p></form>";
 
 	if($submit) 
 	{	
 		
 		$result=true;
-		#header("Location:gall_search.php?search=$search&result=true");
+		header("Location:gall_search.php?search=$search&result=true");
 		
 	}
-	if(isset($result) and $result==true)
+	if(isset($result))
 	{
 		
 		
@@ -96,10 +95,10 @@
 			$i++;
 		}
 		echo "</td></tr></table></div>";
-		if($numrows>10) echo "<p class=\"middle top\"><a href=\"#content\">Top</a></p>";
+		if($numrows>10) echo "<p class=\"middle\"><a href=\"#content\">Top</a></p>";
 		include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 		sendemail("search",$auth,$search);
-		#header("Location:gall_search.php?search=$search&result=true");
+		
 	}
 
 ?>

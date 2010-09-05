@@ -1,26 +1,26 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Advanced Map Settings";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php';
 ?>
 <body>
 <?php 
 	$area="location";
-	$page="location";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 	$map1 = getconfig("livemap1");
 	$map2 = getconfig("livemap2");
 	$map3 = getconfig("localmap1");
 	$map4 = getconfig("localmap2");
-
+	if($_SERVER['SERVER_NAME']=="arnoldanddistrictcameraclub.org.uk"  or $_SERVER['SERVER_NAME']=="www.arnoldanddistrictcameraclub.org.uk")
+	{
 		$map1 = getconfig("livemap1");
 		$map2 = getconfig("livemap2");
-
+	}	
+	else 
+	{
+		$map1 = getconfig("localmap1");
+		$map2 = getconfig("localmap2");
+	}
 	$long = getconfig("longitude");
 	$lat = getconfig("latitude");
 	$zoom = getconfig("zoom");	
@@ -45,7 +45,7 @@
 		<input id="zoom" type="text" name="zoom" size="35" value="<?php echo $zoom; ?>"><br/>
 		<label>&nbsp;</label>
 
-		<input id="update" type="submit" value="Update" />
+		<input type="submit" value="Update" />
 	</fieldset>
 </form>
 </div>

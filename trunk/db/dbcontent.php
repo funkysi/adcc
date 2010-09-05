@@ -2,7 +2,7 @@
 
 function getcontent2($table,$where,$limit="")
 {
-				include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+				include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 				$ans="";
 				$sql = "select * from ".$table." where ".$where." order by id asc ".$limit;
 			    $rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -38,7 +38,7 @@ function getcontent2($table,$where,$limit="")
 }
 function getcontent($table,$where,$limit="")
 {	
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$ans="";
 					$sql = "select * from ".$table." where ".$where." order by id asc ".$limit;
 				    $rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -57,7 +57,7 @@ function getcontent($table,$where,$limit="")
 }	
 function getcount($table,$where,$limit="")
 {	
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$ans="";
 					$sql = "select count(*) as count from ".$table." where ".$where." order by id asc ".$limit;
 				    $rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -69,13 +69,13 @@ function getcount($table,$where,$limit="")
 }	
 function updatecontent($text,$image,$link,$id)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "UPDATE content SET text='$text',  image='$image', link='$link' WHERE id='$id'"; 
 					$rs = mysql_query($sql) or die ("Could not execute SQL query update content".$sql);
 }
 function setcontent($text,$image,$link,$page)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "insert into content (text,image,link,page) 
 						values (\"$text\",\"$image\",\"$link\",\"$page\")"; 
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
@@ -83,7 +83,7 @@ function setcontent($text,$image,$link,$page)
 }
 function deletecontent($id)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "DELETE FROM content WHERE id='$id'";
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
 }

@@ -27,7 +27,7 @@
 		<tr><td >&lt;a href="http://www.google.com">Link&lt;/a>  </td><td ><a href="http://www.google.com">Link</a></td></tr>
 
 		<tr><td >&lt;a href="html.php">Link&lt;/a>  </td><td ><a href="html.php">Link</a></td></tr>
-		<tr><td >&lt;img src="imgs/adccnew_ie6.png"/></td><td ><img src="../imgs/site/adccnew_ie6.png" alt="ADCC Logo" /></td></tr>
+		<tr><td >&lt;img src="imgs/adccnew_ie6.png"/></td><td ><img src="../imgs/adccnew_ie6.png" alt="ADCC Logo" /></td></tr>
 		<tr><td colspan="2">Please can you try and avoid using the last two if it all possible and stick with putting links and images in the boxes I have provided. Other codes are available but I have tried to keep it simple and still give you some options when writing news items. <br/><br/>Any question/problems please let me know.</td></tr>
 	</table>
 </div>

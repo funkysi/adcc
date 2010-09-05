@@ -17,10 +17,9 @@ function getuser($username,$passw) {
 						}
 						if( $num != 0 )
 						{ 
-							setcookie( "auth_new", "$username",time()+86400 , "/" );
-							setcookie( "level_new", "$level",time()+86400 , "/" );
+							setcookie( "auth_new", "$username",time()+86400 , "/",$_SERVER["HTTP_HOST"] );
+							setcookie( "level_new", "$level",time()+86400 , "/",$_SERVER["HTTP_HOST"] );
 							$msg="";
-							#echo $_SERVER["HTTP_HOST"];
 							header( "Location:access.php" ); 
 						}
 						else
@@ -92,23 +91,11 @@ function getusercount()
 					}
 					return $ans;
 }
-function getallusercount()
-{	
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
-					$ans="";
-					$sql = "select count(*) as count from users";
-				    $rs = @mysql_query($sql) or die("Could not execute SQL query");
-				    while ($row=mysql_fetch_array($rs))
-				    {
-						$ans = $row['count'];
-					}
-					return $ans;
-}
 function getfullusercount()
 {	
 					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$ans="";
-					$sql = "select count(*) as count from users where level ='1'";
+					$sql = "select count(*) as count from users where level=1";
 				    $rs = @mysql_query($sql) or die("Could not execute SQL query");
 				    while ($row=mysql_fetch_array($rs))
 				    {
@@ -212,9 +199,7 @@ function createusers($username,$passw,$displayname,$lastname,$level)
 {
 					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "insert into users (username,passw,displayname,lastname, level, gall_null)	values (\"$username\",\"$passw\",\"$displayname\",\"$lastname\",\"$level\",1)";
-					$rs = mysql_query($sql) or die ("Could not execute SQL query update content".$sql);
-					$sql2 = "insert into permission (userid,location,level) values (\"$username\",\"password\",\"1\")";
-					$rs2 = mysql_query($sql2) or die ("Could not execute SQL query update content".$sql2);			
+					$rs = mysql_query($sql) or die ("Could not execute SQL query update content".$sql);				
 }
 function createRandomPassword() {
 

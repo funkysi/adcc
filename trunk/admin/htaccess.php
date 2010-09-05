@@ -1,26 +1,29 @@
 <?php
-	date_default_timezone_set('UTC');
 	$filename = $_SERVER["DOCUMENT_ROOT"].'/include/config.php';
 	include $filename;
-	$filename = $_SERVER["DOCUMENT_ROOT"]."/.htaccess";
+	$filename =$cfg['path']."/.htaccess";
 	$ToDayDate1 = date("m-d-Y"); 
 		if( file_exists( $filename ) )
 		{
 			unlink($filename);
 		}
 			$contents = "RewriteEngine on
-			   
+			RewriteRule (.*)\.xml(.*) $1.php$2 [nocase]   
 			RewriteRule ^gall/(.+)/(.+)/$ gall/view.php?id=$1&username=$2
-			
+RewriteRule ^gall/(.+)/(.+)$ gall/view.php?id=$1&username=$2
 			RewriteRule ^image/(.+)/(.+)/$ gall/viewpic.php?id=$2&username=$1
-			
+RewriteRule ^image/(.+)/(.+)$ gall/viewpic.php?id=$2&username=$1
 			RewriteRule ^author/(.+)/$ gall/author.php?username=$1
+RewriteRule ^author/(.+)$ gall/author.php?username=$1
 			
-			RewriteRule ^news/(.+)/(.+)/(.+)/$ news/index.php?year=$1&month=$2&day=$3
-			
-			RewriteRule ^news/$ news/index.php
+			RewriteRule ^news/(.+)/$ news/index.php?id=$1&CurrentMonth=".$ToDayDate1."
+
+			RewriteRule ^news/(.+)/(.+)/$ news/index.php?id=$1&CurrentMonth=$2
+
 			RewriteRule ^schedule/(.+)/$ schedule/index.php?id=$1
+
 			RewriteRule ^articles/(.+)/$ articles/varticle.php?link=$1
+RewriteRule ^articles/(.+)$ articles/varticle.php?link=$1
 			ExpiresActive On
 			ExpiresByType image/gif A2592000
 			ExpiresByType image/png A2592000
@@ -29,7 +32,6 @@
 			ExpiresByType text/css A2592000
 			ExpiresByType text/html A2592000
 			ExpiresByType text/php A2592000
-			ExpiresByType image/x-icon A2592000
 			FileETag MTime Size
 			ErrorDocument 400 /error/error.php
 			ErrorDocument 401 /error/error.php
@@ -37,7 +39,7 @@
 			ErrorDocument 403 /error/error.php
 			ErrorDocument 404 /error/error.php
 			ErrorDocument 500 /error/error.php
-						
+
 			Redirect /schedule.php http://".$_SERVER["HTTP_HOST"]."/schedule/
 			Redirect /schedule/schedule2.php http://".$_SERVER["HTTP_HOST"]."/schedule/
 			Redirect /new.php http://".$_SERVER["HTTP_HOST"]."/news/
@@ -77,14 +79,18 @@
 			Redirect /home/index.php http://".$_SERVER["HTTP_HOST"]."/index.php
 			Redirect /home/index2.php http://".$_SERVER["HTTP_HOST"]."/index.php
 			Redirect /home/testarticle/ http://".$_SERVER["HTTP_HOST"]."/home/
-			Redirect /view.php http://".$_SERVER["HTTP_HOST"]."/gall/view.php
-			AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css\n";
+			Redirect /view.php http://".$_SERVER["HTTP_HOST"]."/gall/view.php\n";
 			
-		if($_SERVER["HTTP_HOST"]=="arnoldanddistrictcameraclub.org.uk" or $_SERVER["HTTP_HOST"]=="www.arnoldanddistrictcameraclub.org.uk" or $_SERVER["HTTP_HOST"]=="adcc.arnoldanddistrictcameraclub.org.uk")
+		if($_SERVER["HTTP_HOST"]=="funkysi.co.uk" or $_SERVER["HTTP_HOST"]=="www.funkysi.co.uk" or $_SERVER["HTTP_HOST"]=="adcc.arnoldanddistrictcameraclub.org.uk")
 			{
-				$contents.="RemoveHandler .php
-				AddType application/cgi-php php
-				Action application/cgi-php /cgi-bin/php.cgi";
+				$contents.="			AuthUserFile 	/usr/local/psa/home/vhosts/funkysi.co.uk/httpdocs/.htpasswd
+AuthGroupFile /dev/null
+AuthName \"Simon Test Website\"
+AuthType Basic
+
+<Limit GET>
+require valid-user
+</Limit>";
 			}
 		else {
 			}
@@ -92,5 +98,5 @@
 				fwrite( $file, $contents);
 				fclose( $file);
 				
-	header("Location:../");
+	header("Location:../index.php");
 ?>

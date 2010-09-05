@@ -52,7 +52,7 @@
 <li class="m"><a  href="/admin/access.php" <?php if ($area=="members") echo "class=\"x\""; ?>><?php echo $name; ?></a>
 <ul class="m second-level">
 <li class="m"><a href="/admin/pass.php">Change Password</a></li>
-<li class="m"><a href="/admin/edit_about.php">Edit About Me</a></li>
+<li class="m"><a href="/admin/users_edit.php">Edit About Me</a></li>
 <li class="m"><a href="/admin/logout.php">Log Out</a></li>
 </ul>
 

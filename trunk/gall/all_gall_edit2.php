@@ -33,7 +33,7 @@
 		sendemail("editphoto",$auth,$caption,$info);
 		echo "<div class=\"middle\">Record Updated</div>";
 		echo "<div class=\"middle\"><a href=\"javascript:history.back(1)\">Back</a></div><br/>";
-		
+		mysql_close();
 
 	}
 ?>

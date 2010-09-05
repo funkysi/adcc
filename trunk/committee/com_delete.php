@@ -1,4 +1,5 @@
 <?php 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 
 	$title=" - Delete Committee";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
@@ -6,23 +7,17 @@
 <body >
 <?php
 	$area="contact";
-	$page="committee";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	$id=$_GET['id'];
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
-	$query="UPDATE users set role='' WHERE id='$id'";
+	$query="UPDATE users set role='0' WHERE id='$id'";
 		include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 		sendemail("delcommittee",$auth,$id);
 		mysql_query($query);
 		
-		
+		mysql_close();
 
 		header("Location:index.php");
 

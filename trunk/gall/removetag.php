@@ -1,6 +1,6 @@
 <?php
 	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$id = $_GET['id'];
 	$tag = $_GET['tag'];$type = $_GET['type'];
 	

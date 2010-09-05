@@ -1,5 +1,5 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 
 	$title=" - Edit Meeting Schedule"; 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
@@ -7,12 +7,6 @@
 <body>
 <?php
 	$area="schedule";
-	$page="schedule";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 ?>
 <div class="left-content padding">
@@ -115,7 +109,7 @@
 	<option value=\"12\" >December</option>
 	</select><input size =\"5\" type=\"text\" name=\"year\" value=\"$nowy\" /><br/>";
 	$form.= "";
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Add\" /> </fieldset></form>";
 
 	#on first opening display the form
@@ -138,7 +132,7 @@
 		$date=$year."-".$month."-".$day." 00:00:00";
 		$sec=date("U", mktime(0,0,0,$month,$day,$year)); 
 		#connect to MySQL
-		include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';   
+		include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';   
 
 		#create the SQL query
 		if($event)

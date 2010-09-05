@@ -18,7 +18,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		{
 			$name=$row['displayname']." ".$row['lastname'];
 		}
-		$link="http://".$_SERVER["HTTP_HOST"]."/gall/gall_search.php?search=".$image;
+		$link="http://".$_SERVER["SERVER_NAME"]."/gall/gall_search.php?search=".$image;
 		if($name=="") $name="Unknown";
 		$sub=$image." Searched for by ".$name;
 		$sub.=$header;
@@ -40,7 +40,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 			$id=$row['id'];
 			$name2=$row['author_id'];
 		}
-		$link="http://".$_SERVER["HTTP_HOST"]."/image/".$type."/".$id."/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/image/".$type."/".$id."/";
 		$sql2 = "select displayname,lastname from users where username='$auth'";
 		$rs2 = @mysql_query( $sql2 ) or die( "Could not execute SQL query" );
 		while ( $row = mysql_fetch_array( $rs2 ) ) 
@@ -109,7 +109,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 	}
 	if($page=="aboutme")
 	{
-		$link="http://".$_SERVER["HTTP_HOST"]."/author/".$name."/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/author/".$name."/";
 		$sql2 = "select displayname,lastname from users where username='$name'";
 		$rs2 = @mysql_query( $sql2 ) or die( "Could not execute SQL query" );
 		while ( $row = mysql_fetch_array( $rs2 ) ) 
@@ -178,7 +178,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 	}
 	if($page=="comedit")
 	{
-		$link="http://".$_SERVER["HTTP_HOST"]."/committee/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/committee/";
 		$sql2 = "select displayname,lastname from users where username='$name'";
 		$rs2 = @mysql_query( $sql2 ) or die( "Could not execute SQL query" );
 		while ( $row = mysql_fetch_array( $rs2 ) ) 
@@ -213,7 +213,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 			$id=$row['id'];
 			$name2=$row['author_id'];
 		}
-		$link="http://".$_SERVER["HTTP_HOST"]."/image/".$name2."/".$id."/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/image/".$name2."/".$id."/";
 		
 		$sql2 = "select displayname,lastname from users where username='$name'";
 		$rs2 = @mysql_query( $sql2 ) or die( "Could not execute SQL query" );
@@ -316,7 +316,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		}
 		$sub="Event added by ".$name;
 		$sub.=$header;
-		$link="http://".$_SERVER["HTTP_HOST"]."/schedule/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/schedule/";
 		
 		$msg="\n";
 		$msg.="User: ".$name;
@@ -337,7 +337,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/news/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/news/";
 		$msg="\n";
 		$msg.="User: ".$name;
 		$msg.="\nText: ".$image;
@@ -357,7 +357,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/";
 		$msg="\n";
 		$msg.="User: ".$name;
 		$msg.="\nTitle: ".$info;		
@@ -377,7 +377,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/membership/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/membership/";
 		$msg="\n";
 		$msg.="User: ".$name;	
 		$msg.="\nText: ".$image;
@@ -396,7 +396,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/download/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/download/";
 		$msg="\n";
 		$msg.="User: ".$name;
 		$msg.="\nFile: ".$image;
@@ -416,7 +416,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/location/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/location/";
 		$msg="\n";
 		$msg.="User: ".$name;
 		$msg.="\nText: ".$image;
@@ -435,7 +435,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/location/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/location/";
 		$msg="\n";
 		$msg.="User: ".$name;
 		$msg.="\nDate: ".$date;
@@ -459,7 +459,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/committee/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/committee/";
 		$msg="\n";
 		$msg.="User: ".$name;
 		$msg.="\nCommittee Member: ".$name2;
@@ -498,7 +498,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$sub.=$header;
 		
 		$date=date("H:i:s d-m-Y");
-		$link="http://".$_SERVER["HTTP_HOST"]."/purpose/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/purpose/";
 		$msg="\n";
 		$msg.="User: ".$name;
 		$msg.="\nText: ".$image;
@@ -533,7 +533,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		}
 		$sub="News edited by ".$name;
 		$sub.=$header;
-		$link="http://".$_SERVER["HTTP_HOST"]."/news/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/news/";
 		$date=date("H:i:s d-m-Y");
 		
 		$msg="\n";
@@ -572,7 +572,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		}
 		$sub="Downloads edited by ".$name;
 		$sub.=$header;
-		$link="http://".$_SERVER["HTTP_HOST"]."/download/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/download/";
 		$date=date("H:i:s d-m-Y");
 		
 		$msg="\n";
@@ -592,7 +592,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		}
 		$sub="Location edited by ".$name;
 		$sub.=$header;
-		$link="http://".$_SERVER["HTTP_HOST"]."/location/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/location/";
 		$date=date("H:i:s d-m-Y");
 		
 		$msg="\n";
@@ -611,7 +611,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		}
 		$sub="Home edited by ".$name;
 		$sub.=$header;
-		$link="http://".$_SERVER["HTTP_HOST"]."/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/";
 		$date=date("H:i:s d-m-Y");
 		
 		$msg="\n";
@@ -631,7 +631,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		}
 		$sub="Purpose edited by ".$name;
 		$sub.=$header;
-		$link="http://".$_SERVER["HTTP_HOST"]."/purpose/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/purpose/";
 		$date=date("H:i:s d-m-Y");
 		
 		$msg="\n";
@@ -650,7 +650,7 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		}
 		$sub="Membership edited by ".$name;
 		$sub.=$header;
-		$link="http://".$_SERVER["HTTP_HOST"]."/membership/";
+		$link="http://".$_SERVER["SERVER_NAME"]."/membership/";
 		$date=date("H:i:s d-m-Y");
 		
 		$msg="\n";
@@ -896,12 +896,9 @@ function sendemail($page,$name='',$image='',$info='',$caption='',$type='',$auth=
 		$msg.="\nDescription: ".$comment;		
 		$msg.="\nDate: ".$date;
 	}
-	include_once $_SERVER["DOCUMENT_ROOT"].'/db/dbconfig.php';
-	$url=getconfig('url');
-	$email=getconfig('email');
-	#$msg=$msg."\n\nThis is an automatically generated email created by the Arnold and District Camera Club website.\n".$url.".\nIf you believe you have received this email in error please contact funkysi1701@googlemail.com.";
+	$msg=$msg."\n\nThis is an automatically generated email created by the Arnold and District Camera Club website.\nhttp://www.arnoldanddistrictcameraclub.org.uk.\nIf you believe you have received this email in error please contact funkysi1701@googlemail.com.";
 
-	$from="From: ".$email." \r\n";
+	$from="From: club@arnoldanddistrictcameraclub.org.uk \r\n";
 	$from.="Bcc: ".$to;
 	mail (null, $sub, $msg,$from);
 	$msg=htmlspecialchars($msg);

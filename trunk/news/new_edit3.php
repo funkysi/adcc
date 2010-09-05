@@ -1,15 +1,10 @@
 <?php
-	$page="news";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
 	$realid=$_GET['id'];
 	$id=$_POST['id'];
 	$pid=$_POST['pid'];
 	$text=$_POST['text'];
-	$title=strip_tags($_POST['title']);
+	$title=$_POST['title'];
 	$delimage=$_POST['delimage'];
 	$year=$_POST['year'];
 	$month=$_POST['month'];
@@ -22,7 +17,7 @@
 	$text= str_ireplace("<BR/>", "<br/>", $text);
 	$text= str_ireplace("'", "", $text);
 	$text= str_ireplace("&", "and", $text);
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$unique_name = date("U").".jpg";
 	if( $_FILES['image']['name'] != "" )
 		{
@@ -67,7 +62,7 @@
 			mysql_query($query);
 			include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 			sendemail("editnews",$auth,$text,$title);
-			
-			header("Location:index2.php");
+			mysql_close();
+			header("Location:index.php");
 		}
 ?>

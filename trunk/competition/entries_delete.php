@@ -1,5 +1,5 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 
 	$title=" - Delete Competition entries";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
@@ -9,12 +9,6 @@
 
 	$id=$_GET['id'];
 	$cid=$_GET['cid'];
-	$page="competition";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$query="DELETE FROM entries WHERE id='$id'";

@@ -1,7 +1,7 @@
 <?php
 function maxdate()
 {
-				include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+				include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 				$ans="";
 				$sql = "select Max(date) as max from schedule";
 				$rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -10,7 +10,7 @@ function maxdate()
 }
 function mindate()
 {
-				include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+				include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 				$ans="";
 				$sql = "select Min(date) as min from schedule";
 				$rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -19,7 +19,7 @@ function mindate()
 }
 function getschedule($arg)
 {
-				include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+				include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 				$ans="";
 				$sql = "select * from schedule where date like '$arg%' order by date asc";
 				$rs = @mysql_query( $sql ) or die( "Could not execute SQL query" );
@@ -36,7 +36,7 @@ function getschedule($arg)
 }	
 function countschedule($arg)
 {
-				include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+				include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 				$ans="";
 				$sql = "select count(*) as count from schedule where date like '$arg%' order by date asc";
 				$rs = @mysql_query( $sql ) or die( "Could not execute SQL query" );

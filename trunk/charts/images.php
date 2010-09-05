@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	include $_SERVER["DOCUMENT_ROOT"].'/db/dbdownload.php';		
 	$sql = "SELECT DISTINCT (name) FROM image_store order by name";
 	$i=0;
@@ -34,9 +34,9 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 			$image_250=str_replace('photos','250',$row['image']);
 			$image_580=str_replace('photos','580',$row['image']);
 			$image_740=str_replace('photos','740',$row['image']);
-			#$file = fopen($image, "r");
-			#$imagesize = filesize($image);
-			#fclose($file);
+			$file = fopen($image, "r");
+			$imagesize = filesize($image);
+			fclose($file);
 			$file = fopen($image_100, "r");
 			$image100size = filesize($image_100);
 			fclose($file);
@@ -53,7 +53,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 			$image740size = filesize($image_740);
 			fclose($file);
 			#echo "<tr><td><img src=\"$image_100\"></td><td>".filesize_format($imagesize)."</td><td>".filesize_format($image100size)."</td><td>".filesize_format($image140size)."</td><td>".filesize_format($image250size)."</td><td>".filesize_format($image580size)."</td><td>".filesize_format($image740size)."</td></tr>";
-			#$total+=$imagesize;
+			$total+=$imagesize;
 			$total100+=$image100size;
 			$total140+=$image140size;
 			$total250+=$image250size;

@@ -1,16 +1,9 @@
 <?php
-	$page="news";
-	date_default_timezone_set('UTC');
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
 	$id=$_POST['id'];
 	$pid=$_POST['pid'];
-	$prevUrl=$_POST['prevUrl'];
 	$text=$_POST['text'];
-	$title=strip_tags($_POST['title']);
+	$title=$_POST['title'];
 	if(isset($_POST['delimage']))
 	{
 		$delimage=$_POST['delimage'];
@@ -27,7 +20,7 @@
 	$text= str_ireplace("<BR/>", "\n", $text);
 	$text= str_ireplace("'", "", $text);
 	$text= str_ireplace("&", "and", $text);
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$unique_name = date("U").".jpg";
 	if( $_FILES['image']['name'] != "" )
 	{
@@ -72,7 +65,7 @@
 		mysql_query($query);
 		include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 		sendemail("editnews",$auth,$text,$title);
-		
-		header("Location:$prevUrl");
+		mysql_close();
+		header("Location:index.php");
 	}
 ?>
