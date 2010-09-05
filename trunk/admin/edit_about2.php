@@ -13,7 +13,7 @@
 	$unique_name = date("U").".jpg";
 	$about=$_POST['about'];
 	
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	if( $_FILES['image']['name'] != "" )
 	{
 		if((substr($_FILES['image']['name'],  -3)!="jpg" and substr($_FILES['image']['name'],  -3)!="JPG"))
@@ -54,7 +54,7 @@
 		include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 		sendemail("aboutme",$auth,$about,$email);
 header("Location:../author/$auth/");
-		
+		mysql_close();
 	}
  
 	include $_SERVER["DOCUMENT_ROOT"].'/include/footer.php';

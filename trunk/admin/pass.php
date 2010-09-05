@@ -1,13 +1,7 @@
 <?php 
-	#include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Change Password"; 
 	$area="members";
-	$page="password";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
@@ -39,7 +33,7 @@
 		<label for="password">Retype Password: </label>
 		<input size ="10" id="password" type="password" name="password2" value="" /><br/>
 		<label>&nbsp;</label>
-		<input id="update" type="submit" value="Update" />
+		<input type="submit" value="Update" />
 	</fieldset>
 </form>
 </div>

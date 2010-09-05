@@ -11,7 +11,7 @@
 	<h2 class="middle bold">Edit Email Alerts</h2>
 	<p>Emails are currently sent to me and the following email addresses: 
 <?php
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$self = $_SERVER['PHP_SELF'];
 	$filter = $_POST['filter'];
 

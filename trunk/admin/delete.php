@@ -1,11 +1,6 @@
 <?php
-	#include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
-	$page="delusers";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
+	
 	$self = $_SERVER['PHP_SELF'];
 	$date = date("Y-m-d H:i:s");
 	
@@ -24,43 +19,18 @@
 	{
 		$type = $_GET['type'];
 	}
-	?>
-<script type="text/javascript">
-
-<!--
-
-function validate_form ( )
-{
-	document.deluser.submit.disabled = false;
-	valid = true;
-
-        if ( document.deluser.type.value == "" )
-        {
-                document.deluser.submit.disabled = true;
-                valid = false;
-        }
-        if ( document.deluser.type.value == "<?php echo $auth; ?>" )
-        {
-                document.deluser.submit.disabled = true;
-                valid = false;
-        }
-        return valid;
-}
-
-//-->
-</script>
-<?php
+	
 	if($submit==null )
 	{
 		$title=" - Delete User Accounts"; 
 		include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
-		echo "<body onload=\"return validate_form ( );\">";
-		$area="members";
+		echo "<body>";
+		$area="";
 		include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 		include $_SERVER["DOCUMENT_ROOT"].'/db/dbuser.php';
 		echo "<div class=\"left-content padding\"><h2 class=\"middle bold\">Delete User Accounts </h2>";
  
-		$numrows = getallusercount();
+		$numrows = getfullusercount();
 
 		$ans= getall_users();
 
@@ -77,25 +47,24 @@ function validate_form ( )
 	
 		$max = count($arr);
 	
-		echo "<div class=\"middle\"><form name=\"deluser\" action=\"$self\" method=\"post\" onchange=\"return validate_form ( );\"><fieldset><select name=\"type\">";
-		echo "<option value=\"\" >Select User</option>";
+		echo "<div class=\"middle\"><form action=\"$self\" method=\"post\"><fieldset><select name=\"type\">";
 		for ($j = 0; $j < $max; $j++)
 		{
 			echo "<option value=\"".$arr[$j]."\" >".$brr[$j]."</option>";
 		}
-		echo "</select><br/><input id=\"del\" type=\"submit\" name=\"submit\" value=\"Delete\" /> </fieldset></form><br/>";
+		echo "</select><input type=\"submit\" name=\"submit\" value=\"Delete\" /> </fieldset></form><br/>";
 		echo "<p>Warning this will completely removed all data stored in the users database. This action can not be undone.</p></div>";
 	}
 	else 
 	{
-		include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
+		include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
 		include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 		sendemail("deleteuser",$auth,$type);
 		$query3="delete from image_store where author_id='$type'";
 		$result=mysql_query($query3);
 		$query2="delete from users where username='$type'";
 		$result2=mysql_query($query2);
-		
+		mysql_close();
 		if($submit) 
 		{
 

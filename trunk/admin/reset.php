@@ -1,11 +1,5 @@
 <?php 
-	#include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
-	$page="resetpass";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
 	$title=" - Reset User Password"; 
 	if(isset($_GET['status']))
 	{
@@ -49,7 +43,7 @@
 	<a name="content"></a>
 	<h2 class="middle bold">Reset User Password</h2>
 <?php
-	$numrows = getallusercount();
+	$numrows = getfullusercount();
 	$ans = getall_users();
 	$arr = array();
 	$brr = array();
@@ -90,7 +84,7 @@
 		echo "<option value=\"".$arr[$j]."\" >".$brr[$j]."</option>";
 	}
 
-	echo "</select><br/><input class=\"advanced\" type=\"submit\" name=\"submit\" value=\"Reset\" /> </fieldset></form></div>";
+	echo "</select><input type=\"submit\" name=\"submit\" value=\"Reset\" /> </fieldset></form></div>";
 
 ?>
 </div>

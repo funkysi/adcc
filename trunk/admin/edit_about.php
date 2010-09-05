@@ -3,7 +3,6 @@
  
 	$title=" - About";
 	$area="members";
-	$tinymce="true";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
@@ -20,7 +19,7 @@
 	}
 	else $status=null;
 
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	
 	$sql = "select * from users where username='$auth'";
 	$result=mysql_query($sql);
@@ -47,17 +46,16 @@
 	<fieldset>
 		<label >Your Name: </label>
 		<?php echo $displayname." ".$lastname; ?><br/>
-		<?php if($image!="") { ?>
 		<label for="current">Current Image File: </label>
 		<img id="current" src="<?php echo str_replace('photos','250',$image); ?>" alt="<?php echo $displayname." ".$lastname; ?>" /><br/>
-		<?php } ?>
 		<label for="file">Select Image File: </label>
 		<input id="file" type="file" name="image" size="35" value="<?php echo $image; ?>"/><br/>
 		<label for="about">About Yourself: </label>
 		<textarea id="about" cols="35" rows="10" name="about" ><?php echo $about; ?></textarea><br/>
 		<label for="email">Email Address: </label>
-		<input id="email" type="text" name="email" size="40" value="<?php echo $email; ?>" /> <br/>
+		<input id="email" type="text" name="email" size="40" value="<?php echo $email; ?>" /><br/> 
 		<input type="hidden" name="auth" value="<?php echo $auth; ?>"/>
+		<label>&nbsp;</label>
 		<input type="submit" value="Submit" /> 
 	</fieldset>
 </form>

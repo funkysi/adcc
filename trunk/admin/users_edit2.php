@@ -13,7 +13,7 @@
 	$email = $_POST['email'];
 
 
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 	if( $_FILES['image']['name'] != "" )
 	{
@@ -55,7 +55,7 @@
 	$area="members";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 	header("Location:users_edit.php");
-	
+	mysql_close();
 
 	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/footer.php';

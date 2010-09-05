@@ -52,13 +52,11 @@
 		<li><a href=\"../admin/create.php\">Add new member to the club</a></li>
 		<li><a href=\"../admin/delete.php\">Delete members who have left the club</a></li>
 		<li><a href=\"../admin/reset.php\">Reset a Users Password</a></li>
-		<li><a href=\"../admin/permission.php\">Change Users Permissions</a></li>
 		<li><a href=\"/admin/logout.php\">Log Out</a></li></ul></div>";
 		
 		echo "<div id=\"other\"><p><span class=\"red bold\">News and other Pages: </span>All sections of the website can be easily updated or deleted.</p>";
 		echo "<ul class=\"padding help middle\">";/*<li><a href=\"../install\">Site Config Options</a></li>*/
-		echo "<li><a href=\"../config/\">Site Config Options</a></li>
-		<li><a href=\"../home/index2.php\">Edit Home Page</a></li>
+		echo "<li><a href=\"../home/index2.php\">Edit Home Page</a></li>
 		<li><a href=\"../purpose/purpose2.php\">Edit Our Purpose Page</a></li>
 		<li><a href=\"../news/new2.php\">Edit News Pages</a></li>
 		<li><a href=\"../competition/comp2.php\">Edit Competition Pages</a></li>
@@ -107,12 +105,12 @@
 		echo "<p>Welcome ".$name.". You have upload access. ";
 	
 	
-		if($numrows==0) echo "You don't have any images in our gallery, <a href=\"../gall/all_upload.php?type=$auth\">click here</a> to upload some now. </p>";
+		if($numrows==0) echo "You don't have any images in our gallery, <a href=\"../gall/upload.php\">click here</a> to upload some now. </p>";
 		else echo "You have ".$numrows." Images in your gallery.</p>"; 
 	
 		if($about=='' and $gall_null==0) echo "<p>Why not write something about yourself, such as why you joined the club or why you like photography. <a href=\"../admin/edit_about.php\">Click here</a> to do this now.</p>";
 		if($username==$pass) echo "<p class=\"redtext\">Please note that you have not changed your password. This means that anyone that knows your username can log in and alter your gallery. To do so now please click <a href=\"pass.php\">here</a>.</p>";
-		if($email==null or $email=="funkysi1701@gmail.com") echo "<p class=\"redtext\">We do not have your email address in our database. If you forget your password you will not be able to reset it without contacting the webmasters. To add your email please click <a href=\"../admin/edit_about.php\">here</a>.</p>";
+		if($email==null or $email=="funkysi1701@gmail.com") echo "<p class=\"redtext\">We do not have your email address in our database. If you forget your password you will not be able to reset it without contacting the webmasters. To add your email please click <a href=\"../admin/users_edit.php\">here</a>.</p>";
 		
 		echo "<div class=\"sidebarfix\"><div id=\"help\"><p><span class=\"redtext\">Help and Support: </span>Are you a new member of the club or an experienced user? Read our detailed help articles or email our knowledgeable webmasters Simon and Greg.</p>";
 		echo "<ul class=\"help middle\"><li>Help Pages (arriving soon)</li>
@@ -130,7 +128,7 @@
 		<li><a href=\"/admin/logout.php\">Log Out</a></li>
 		</ul></div></div>";
 	
-		if($role!='')
+		if($role!='0')
 		{
 			echo "<div id=\"other\"><p><span class=\"redtext\">News and other Pages: </span></p><ul class=\"help middle\"><li><a href=\"http://webmail.arnoldanddistrictcameraclub.org.uk\">Check the Committee email mailbox</a> (Requires login details)</li></ul></div>";
 		}	

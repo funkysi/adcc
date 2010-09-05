@@ -1,18 +1,12 @@
 <?php 
-	#include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Edit Users";
 	$area="members";
-	$tinymce=true;
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php 
-	$page="editusers";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
+	
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -25,9 +19,9 @@
 		$status=$_GET['status'];
 	}
 	else $status=null;
-	if($perm==true ) 
+	if(isset($_COOKIE['level_new']) and isset($_COOKIE['auth_new']) and $_COOKIE['level_new']==0 ) 
 	{
-	$numrows = getallusercount();
+	$numrows = getfullusercount();
 
 	$ans= getall_users();
 
@@ -58,19 +52,15 @@
 	{	
 		$submit = $_POST['submit'];
 	}
-		if(isset($_REQUEST['user']))
-		{
-			header( "Location:users_edit.php?type=$type" ); exit();
-		}
-	echo "<div class=\"middle\"><form action=\"$self?user=true\" method=\"post\"><fieldset>
-	<select name=\"type\"><option value=\"\" >Select User</option>";
+	echo "<div class=\"middle\"><form action=\"$self\" method=\"post\"><fieldset>
+	<select name=\"type\">";
 
 	for ($j = 0; $j < $max; $j++)
 	{
 	echo "<option value=\"".$arr[$j]."\" >".$brr[$j]."</option>";
 	}
 
-	echo "</select><br/><input class=\"picture\" type=\"submit\" name=\"submit\" value=\"View\" /> </fieldset></form></div><br/>";
+	echo "</select><input type=\"submit\" name=\"submit\" value=\"View\" /> </fieldset></form></div><br/>";
 }
 else $type=$auth;
 	$query=" SELECT * FROM users WHERE username='$type'";
@@ -100,29 +90,28 @@ else $type=$auth;
 ?>
 <form action="users_edit2.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
 	<fieldset>  
-<?php if($perm==true) 
+<?php if(isset($_COOKIE['level_new']) and isset($_COOKIE['auth_new']) and $_COOKIE['level_new']==0 ) 
 	{	
 		echo "<label for=\"role\">Role: </label>
-		<input id=\"role\" type=\"text\" name=\"role\" size=\"46\" value=\"".$role."\" /><br/>";
+		<input id=\"role\" type=\"text\" name=\"role\" size=\"40\" value=\"".$role."\" /><br/>";
 		}
 ?>		
 		<label for="displayname">First Name: </label>
-		<input id="displayname" type="text" name="displayname" size="46" value="<?php echo $displayname; ?>" /><br/> 
+		<input id="displayname" type="text" name="displayname" size="40" value="<?php echo $displayname; ?>" /><br/> 
 		<label for="lastname">Last Name: </label>
-		<input id="lastname" type="text" name="lastname" size="46" value="<?php echo $lastname; ?>" /><br/>
-		<label for="email">Email Address: </label>
-		<input id="email" type="text" name="email" size="46" value="<?php echo $email; ?>" /><br/> 
+		<input id="lastname" type="text" name="lastname" size="40" value="<?php echo $lastname; ?>" /><br/>
 		<?php if($image!="") echo "<label>Image: </label><img alt=\"\" src=\"".str_replace('photos','250',$image)."\" /><br/>";?>
 		<label for="image">Image: </label>
-		<input id="image" type="file" name="image" size="46" /> 
-
+		<input id="image" type="file" name="image" size="35" /> 
+		<label for="email">Email Address: </label>
+		<input id="email" type="text" name="email" size="40" value="<?php echo $email; ?>" /> 
 		<label for="about">About You: </label>
-		<textarea id="about" cols="55" rows="10" name="about" ><?php echo $about; ?></textarea><br/> 
+		<textarea id="about" cols="35" rows="10" name="about" ><?php echo $about; ?></textarea><br/> 
 		<input type="hidden" name="type" value="<?php echo $type; ?>" />
 		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<input type="hidden" name="image" value="<?php echo $image; ?>" />
 		<label>&nbsp; </label>
-		<input id="update" type="submit" value="Update" />
+		<input type="submit" value="Update" />
 	</fieldset>
 </form>
 <?php

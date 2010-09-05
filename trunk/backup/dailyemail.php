@@ -1,13 +1,11 @@
 <?php
-	date_default_timezone_set('UTC');
+
 	#$date=date("Y-m-d");
 	$date = date('Y-m-d', mktime(0, 0, 0, date("m") , date("d") - 1, date("Y")));
 	$url=getconfig('url');
 	$email=getconfig('email');
 	$message="";
-	$subject="";
-#echo $yesterday;
-echo $date;
+
 	$sql2 = "select * from log where date like '$date%'";
 	$rs2 = @mysql_query( $sql2 ) or die( "Could not execute SQL query 10" );
 	while ( $row = mysql_fetch_array( $rs2 ) ) 
@@ -25,9 +23,9 @@ echo $date;
 function getconfig($name)
 {
 	$cfg['host']='localhost';
-	$cfg['dbname']='@@dbname@@';
-	$cfg['dbuser']='root';
-	$cfg['dbpass']='ncc1701';
+	$cfg['dbname']='web12-adcc2';
+	$cfg['dbuser']='adcc2';
+	$cfg['dbpass']='cvZydwq';
 
 	$rs = @mysql_connect( $cfg['host'], $cfg['dbuser'], $cfg['dbpass'] ) or die( "Could not connect to MySQL" );
 	$rs = @mysql_select_db( $cfg['dbname'] ) or die( "Could not select database" );
