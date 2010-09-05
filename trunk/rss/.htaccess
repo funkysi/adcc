@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule (.*)\.xml(.*) $1.php$2 [nocase] 
