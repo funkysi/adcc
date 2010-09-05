@@ -1,6 +1,6 @@
 <?php
 	include $_SERVER["DOCUMENT_ROOT"].'/include/geturl.php';
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	if($_SERVER["HTTP_HOST"]=="adcc.funkygoth") $header=" (TEST)";
 	$sql2 = "select * from config where name='email'";
 	$rs2 = @mysql_query( $sql2 ) or die( "Could not execute SQL query" );

@@ -39,30 +39,27 @@
 	}
 	else $submit="";
 	$self = $_SERVER['PHP_SELF'];
-date_default_timezone_set('UTC');
 	$unique_name = date("U").".jpg";
 	$date = date("Y-m-d H:i:s");
 	$type = $_REQUEST['type'];
 	$msg="";
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 		
 	$sql = "select * from users where username='$type'";
 
 	$rs = @mysql_query( $sql ) or die( "Could not execute SQL query" );
 	while ( $row = mysql_fetch_array( $rs ) ) 
 	{
-		$level = $row['level'];
-		if($level!=1) header("Location:all_gall_edit.php");
 		$namew = $row['displayname']." ".$row['lastname'];
 		$title2 = "<h2 class=\"middle bold\">Add Image to ".$namew. "'s Gallery</h2>";
 	}
 	#the html form
 	$form= "<form action=\"$self?type=$type\" method=\"post\" enctype=\"multipart/form-data\"><fieldset>";
-	$form.= "<label for=\"name\">Authors Name: </label><input id=\"name\" readonly=\"readonly\" class=\"pos2\" type=\"text\" name=\"name\" value=\"$namew\" size=\"46\" /><br/>";
+	$form.= "<label for=\"name\">Authors Name: </label><input id=\"name\" readonly=\"readonly\" class=\"pos2\" type=\"text\" name=\"name\" value=\"$namew\" size=\"40\" /><br/>";
 	$form.= "<label for=\"image\" >Image: </label><input id=\"image\" class=\"pos2\" type=\"file\" name=\"image\" size=\"35\" /><br/>";
-	$form.= "<label for=\"caption\">Caption: </label><input id=\"caption\" class=\"pos2\" type=\"text\" name=\"caption\" size=\"46\" /><br/>";
+	$form.= "<label for=\"caption\">Caption: </label><input id=\"caption\" class=\"pos2\" type=\"text\" name=\"caption\" size=\"40\" /><br/>";
 	$form.= "<label for=\"info\">More Details about the photo: </label><textarea id=\"info\" cols=\"35\" rows=\"10\" name=\"info\" ></textarea><br/>";
-	$form.= "<label>&nbsp;</label><input id=\"add\" class=\"pos2\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input class=\"pos2\" type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Add\"/></fieldset></form>";
 
 	if($status=="toobig") 
@@ -129,7 +126,6 @@ date_default_timezone_set('UTC');
 	}
  
 	$title=" - Upload";
-	$tinymce="true";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>

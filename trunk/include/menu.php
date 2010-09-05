@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container">&nbsp;
 <a class="hide" href="#content" title="skip link">Skip to the content</a>
 <div class="title">
                 <h1 class="middle bold"><?php echo $sitetitle; ?></h1>

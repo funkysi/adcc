@@ -1,17 +1,11 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Update Location Page";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body >
 <?php
 	$area="location";
-	$page="location";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	$id=$_POST['id'];
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>

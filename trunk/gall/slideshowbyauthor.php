@@ -51,7 +51,7 @@ if(isset($_GET['image']))
 		$image = $_GET['image'];
 	}
 $authorid = $_GET['author'];
-include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 #create the SQL query
 $query2   = "SELECT COUNT(*) AS numrows FROM image_store where author_id = '$authorid' order by date desc";

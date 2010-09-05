@@ -1,24 +1,18 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Edit Committee Page";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php 
 	$area="contact";
-	$page="committee";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';  
 ?>
 <div class="left-content padding">
 	<a name="content"></a>
 	<h2 class="middle bold">Insert New Committee Member</h2>
 <?php
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$query   = "SELECT COUNT(*) AS numrows FROM users WHERE LEVEL = 1";
 	$result  = mysql_query($query) or die('Error, query failed');
 	$row     = mysql_fetch_array($result, MYSQL_ASSOC);
@@ -81,7 +75,7 @@
 	$form.= "</select><br/><label for=\"order\">Order: </label>
 	<input id=\"order\" value=\"10\" type=\"text\" name=\"order\"><br/>
 	
-	<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Add\" /> </fieldset></form>";
 	
 	#on first opening display the form

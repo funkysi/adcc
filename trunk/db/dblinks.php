@@ -1,7 +1,7 @@
 <?php
 function getlinks($id="")
 {
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$ans="";
 	$sql = "select * from links $id order by pri asc ";
 	$rs = @mysql_query($sql) or die("Could not execute SQL query".$sql);
@@ -21,7 +21,7 @@ function getlinks($id="")
 }
 function getcount()
 {	
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$ans="";
 					$sql = "select count(*) as count from links order by pri asc";
 				    $rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -33,7 +33,7 @@ function getcount()
 }
 function setlinks($linktext,$link,$pri,$description)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "insert into links (linktext,link, pri, description) 
 						values (\"$linktext\",\"$link\",\"$pri\",\"$description\")"; 
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
@@ -41,13 +41,13 @@ function setlinks($linktext,$link,$pri,$description)
 }
 function updatelinks($linktext,$link,$pri,$description,$id)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "UPDATE links SET linktext='$linktext', link='$link', pri='$pri',description='$description' WHERE id='$id'"; 
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
 }
 function deletelinks($id)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "DELETE FROM links WHERE id='$id'";
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
 }

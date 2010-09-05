@@ -8,7 +8,7 @@
 	{
 		$image = $_GET['image'];
 	}	
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 	#create the SQL query
 	$query2   = "SELECT COUNT(*) AS numrows FROM image_store order by date desc";

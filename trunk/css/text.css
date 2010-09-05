@@ -2,7 +2,7 @@
 
 h1 {
   font-size:40.0pt;
-  padding-top: 35px;
+  padding-top: 15px;
 	padding-left:75px; 
 }
 h2 {
@@ -93,13 +93,8 @@ img{
 	border-right:1px solid #888;
 	border-bottom:1px solid #555;	
 }
-img.clear{
-	border:0px;
-}
-
 img.afa{
 	margin-bottom:15px;
-	margin-left:5px;
 }
 .left {
 	float:left;
@@ -146,318 +141,10 @@ hr.clear{
 .last{
 
 }
-.advanced{
-	background: #abf url(../imgs/site/wrench_orange.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.advanced:hover{
-	background: #abc url(../imgs/site/wrench_orange.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.edit a, input#update{
-	background: #abf url(../imgs/site/edit_16.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.edit a:hover, input#update:hover{
-	background: #abc url(../imgs/site/edit_16.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.firsticon a{
-	background: #abf url(../imgs/site/resultset_first.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.firsticon a:hover{
-	background: #abc url(../imgs/site/resultset_first.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.nexticon a{
-	background: #abf url(../imgs/site/resultset_next.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.nexticon a:hover{
-	background: #abc url(../imgs/site/resultset_next.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.previcon a{
-	background: #abf url(../imgs/site/resultset_previous.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.previcon a:hover{
-	background: #abc url(../imgs/site/resultset_previous.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.top a{
-	background: #abc url(../imgs/site/arrow_up.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.top a:hover{
-	background: #abf url(../imgs/site/arrow_up.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.person a{
-	background: #abf url(../imgs/site/user.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.person a:hover{
-	background: #abc url(../imgs/site/user.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.picture a, input.picture{
-	background: #abf url(../imgs/site/picture.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.picture a:hover, input.picture:hover{
-	background: #abc url(../imgs/site/picture.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.lasticon a{
-	background: #abf url(../imgs/site/resultset_last.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.lasticon a:hover{
-	background: #abc url(../imgs/site/resultset_last.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.competition a,  input.competition{
-	background: #abf url(../imgs/site/rosette.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.competition a:hover, input.competition:hover{
-	background: #abc url(../imgs/site/rosette.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.add a, input#add{
-	background: #abf url(../imgs/site/add_16.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.add a:hover, input#add:hover{
-	background: #abc url(../imgs/site/add_16.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}	
-.delete a, input#del{
-	background: #abf url(../imgs/site/delete_16.png) no-repeat 3px center;
-	padding-left:20px;
-	font-weight:bold;
-	
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	
-	padding-right:5px;
-}
-.delete a:hover, input#del:hover{
-	background: #abc url(../imgs/site/delete_16.png) no-repeat 3px center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	text-decoration:none;
-}
-.links a{
-	background: url(../imgs/site/link.png) no-repeat 0% center;
-	padding-left:20px;
-}
-.pdf a{
-	background: url(../imgs/site/pdf.png) no-repeat 0% center;
-	padding-left:20px;
-}
-.jpg a{
-	background: url(../imgs/site/jpg.png) no-repeat 0% center;
-	padding-left:20px;
-}
-.xls a{
-	background: url(../imgs/site/xls.png) no-repeat 0% center;
-	padding-left:20px;
-}
-.doc a{
-	background: url(../imgs/site/doc.png) no-repeat 0% center;
-	padding-left:20px;
-}
-.zip a{
-	background: url(../imgs/site/zip.png) no-repeat 0% center;
-	padding-left:20px;
-}
-input.search{
-	background: #abc url(../imgs/site/magnifier.png) no-repeat 5% center;
-	padding-left:20px;
-	font-weight:bold;
-	width:149px;
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	margin-left:5px;
-}
-input.search:hover{
-	background:#aabbff url(../imgs/site/magnifier.png) no-repeat 5% center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	margin-left:5px;
-}
-input#login{
-	background: #abc url(../imgs/site/lock.png) no-repeat 5% center;
-	padding-left:20px;
-	margin-right:20px;
-	font-weight:bold;
-	width:75px;
-	border-top:1px solid #ccc;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #555;
-	margin-left:0px;
-}
-input#login:hover{
-	background:#aabbff url(../imgs/site/lock.png) no-repeat 5% center;
-	border-top:1px solid #555;
-	border-left:1px solid #bbb;
-	border-right:1px solid #888;
-	border-bottom:1px solid #ccc;
-	margin-left:0px;
-}
-.upload a{
-	background: url(../imgs/site/attach.png) no-repeat 0% center;
-	padding-left:20px;
-}
 .item{
-	border:0px #000 dotted;
-	margin-bottom:5px;
-	padding-left:5px;
-	
+border:1px #000 dotted;
+margin-bottom:5px;
+padding-left:5px;
 }
 p.imagetitle{
 	clear:both;
@@ -506,13 +193,13 @@ ul.access li {
 	margin-bottom:0px;
 }
 dl dd {
-	padding-left: 40px;
-	padding-bottom: 10px;
+	padding-left: 300px;
+	padding-bottom: 15px;
 }
 dl dt{
 	padding-left:20px;
-	padding-bottom: 10px;
-	padding-top:5px;
+	padding-bottom: 15px;
+	float: left;
 }
 td,th {
 	padding-right:50px;
@@ -521,7 +208,7 @@ td,th {
 	padding-top:5px;
 }
 tr.null{
-	background:#e0Efff;
+background:#e0Efff;
 }
 th {
 	font-weight:bold;

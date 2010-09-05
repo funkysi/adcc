@@ -1,5 +1,5 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
  
 	$title=" - Update Competition Page";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
@@ -9,12 +9,6 @@
 	$cid=$_POST['cid'];
 	$id=$_POST['id'];
 	$area="competition";
-	$page="competition";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 	$image_title = $_POST['image_title'];
 	$users = $_POST['users'];

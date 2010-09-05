@@ -1,5 +1,19 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
+?>
+<?php 
+	$title=" - Edit Membership Page";
+	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
+?>
+<body>
+<?php 
+	$area="membership";
+	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
+?>
+<div class="left-content padding">
+<a name="content"></a>
+<h2 class="middle bold">Edit Membership Page</h2>
+<?php
 	$self = $_SERVER['PHP_SELF'];
 	$other = $_SERVER['REMOTE_ADDR'];
 	if(isset($_POST['text']))
@@ -19,7 +33,7 @@
 	$form = "<form action=\"$self\" method=\"post\" enctype=\"multipart/form-data\"><fieldset>";
 	$form.= "<label for=\"text\">Text:</label> <textarea id=\"text\" cols=\"35\" rows=\"10\" name=\"text\" >$text</textarea><br/>";
 
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Add\" /> </fieldset></form>";
 
 	#on first opening display the form
@@ -41,7 +55,7 @@
 	{
 			 
 		#connect to MySQL
-		include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
+		include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php'; 
 
 		#create the SQL query
 		if($text)
@@ -52,40 +66,15 @@
 			or die ("Could not execute SQL query");
 			include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 			sendemail("newmem",$auth,$text);
-			$tinymce=false;
 		}
 
 		#confirm the entry and display a link to view guestbook
 		if($rs)
 		{
-header("Location:index.php");exit();?><a href="index.php">Go back</a>
-<?php
+header("Location:index.php");exit();
 			#header("Location:index2.php" ); exit();
 		}
 	}
-
-?>
-<?php 
-	$title=" - Edit Membership Page";
-	$tinymce=true;
-	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
-	
-?>
-<body>
-<?php 
-	$area="membership";
-	$page="membership";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
-	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
-?>
-<div class="left-content padding">
-<a name="content"></a>
-<h2 class="middle bold">Edit Membership Page</h2>
-<?php
 	echo($msg);
 ?>
 </div>

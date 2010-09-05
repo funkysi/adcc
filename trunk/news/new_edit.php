@@ -1,37 +1,31 @@
 <?php 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
+
 	if(isset($_GET['status']))
 	{
 		$status=$_GET['status'];
 	}
 	else $status=null;
-	$prevUrl = $_GET['PrevUrl'];
 	$id=$_GET['id'];
 	if(isset($_GET['pid']))
 	{
 		$pid=$_GET['pid'];
 	}
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 	$query="SELECT * FROM content WHERE id='$id' or additional='$id' order by id asc";
 	$result=mysql_query($query);
 	$num=mysql_numrows($result);
-	
+	mysql_close();
 	if($num==0) header("Location:index.php");
 ?>
 <?php 
 	$title=" - Edit News Page";
-	$tinymce=true;
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php';
 ?>
 <body>
 <?php 
 	$area="new";
-	$page="news";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">

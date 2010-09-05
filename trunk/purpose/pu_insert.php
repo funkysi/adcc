@@ -1,17 +1,12 @@
 <?php 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
+
 	$title=" - Our Purpose";
-	$tinymce=true;
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php 
 	$area="purpose";
-	$page="purpose";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -46,7 +41,7 @@
 	$form.= "<label for=\"image\">Image Url: </label><input id=\"image\" type=\"file\" name=\"image\" size=\"35\" /><br/>";
 
 
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Add\" /> </fieldset></form>";
 
 
@@ -69,7 +64,7 @@
 	{
  
 		#connect to MySQL
-		include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';  
+		include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';  
 
 		if( $_FILES['image']['name'] != "" )
 		{

@@ -1,18 +1,12 @@
 <?php 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 
 	$title=" - Edit Membership Page";
-	$tinymce=true;
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php 
 	$area="membership";
-	$page="membership";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding">
@@ -21,7 +15,7 @@
 <?php
 
 	$id=$_GET['id'];
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 	$query=" SELECT * FROM content WHERE id='$id'";
 	$result=mysql_query($query);
@@ -43,14 +37,14 @@
 		<textarea id="text" cols="35" rows="10" name="text" ><?php echo $text; ?></textarea><br/> 
 		<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 		<label>&nbsp;</label>
-		<input id="update" type="submit" value="Update"/><br/>
+		<input type="submit" value="Update"/><br/>
 	</fieldset>
 </form>
 <form action="mem_delete.php?id=<?php echo $id; ?>" method="post">
 	<fieldset>
 		<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 		<label>&nbsp;</label>
-		<input id="del" type="submit" value="Delete"/><br/>
+		<input type="submit" value="Delete"/><br/>
 	</fieldset>
 </form>
 

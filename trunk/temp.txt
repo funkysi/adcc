@@ -1,0 +1,7 @@
+<?php
+	if ($_SERVER["SERVER_NAME"]=="adcc.funkygoth") 
+	{
+		echo "Version: 2.$WCREV$<br/>Date: $WCDATE$";
+	}
+?>
+

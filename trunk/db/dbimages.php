@@ -1,23 +1,4 @@
 <?php
-function getimagebyusername2($username)
-{
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
-	$ans="";
-	$sql="select * from image_store where author_id='$username' order by date desc";
-	$rs = @mysql_query($sql) or die("Could not execute SQL query");
-					$i=0;
-				    while ($row=mysql_fetch_array($rs))
-				    {
-						$ans[$i]['id']=$row['id'];
-						$ans[$i]['image']=$row['image'];
-						$ans[$i]['name']=$row['name'];
-						$ans[$i]['caption']=$row['caption'];
-						$ans[$i]['info']=$row['info'];
-						$ans[$i]['date']=$row['date'];
-						$i++;
-					}
-	return $ans;
-}
 function getimagebyusername($username,$offset,$rowsPerPage)
 {
 	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';

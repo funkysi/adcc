@@ -1,6 +1,9 @@
 /* Big Container Formatting */
 
-
+html{
+  background: #fff url(../imgs/site/bg.png) left top fixed;
+ 
+}
 body{
 	width:960px;
 	margin: 0 auto;

@@ -1,17 +1,11 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Competition League"; 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php
 	$area="competition";
-	$page="competition";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 ?>
 <div class="left-content padding">
@@ -36,14 +30,14 @@
 	while ( $row = mysql_fetch_array( $rs ) ) 
 	{
  
-		echo "<p class=\"middle padding\">".$row['type']." Round ".$row['round']."</p>"; 
+		echo "<p class=\"middle\">".$row['type']." Round ".$row['round']."</p>"; 
 ?>
-<div class="comm middle">
-	<span class="edit"><a href="comp_edit.php?id=<?php echo $row['id']; ?>">Edit</a></span>
-	<span class="delete"><a href="comp_delete.php?id=<?php echo $row['id']; ?>">Delete</a></span>
-</div><br/>
+<ul class="comm middle">
+	<li><a href="comp_edit.php?id=<?php echo $row['id']; ?>">Edit</a></li>
+	<li><a href="comp_delete.php?id=<?php echo $row['id']; ?>">Delete</a></li>
+</ul><br/>
 <?php } ?>
-<div class="middle"><span class="add"><a href="comp_insert.php">Insert New</a></span>&nbsp;<span class="picture"><a href="index.php">View Competitions</a></span></div>
+<div class="middle"><a href="comp_insert.php">Insert New</a><br/><a href="index.php">View Competitions</a></div>
 </div>
 <?php 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/footer.php';

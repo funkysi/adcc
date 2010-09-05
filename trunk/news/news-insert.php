@@ -31,7 +31,7 @@
 		}
 		if($row['image']!=null) 
 		{
-			echo "<div class=\"padding clearfix\"><div class=\"left\"><p class=\"newimage\"><a href=\"http://".$_SERVER["HTTP_HOST"]."/".str_replace('photos','580',str_replace('../','',$row['image']))."\"><img  alt=\"".$row['title']."\" src=\"http://".str_replace('www','imgs',$_SERVER['HTTP_HOST'])."".str_replace('../imgs/photos','/imgs/250',$row['image'])."\" /></a></p><p class=\"imagetitle middle\">".$row['title']."</p></div>";
+			echo "<div class=\"padding clearfix\"><div class=\"left\"><p class=\"newimage\"><a href=\"http://".$_SERVER["SERVER_NAME"]."/".str_replace('photos','580',str_replace('../','',$row['image']))."\"><img  alt=\"".$row['title']."\" src=\"http://".$_SERVER["SERVER_NAME"]."/".str_replace('photos','250',str_replace('../','',$row['image']))."\" /></a></p><p class=\"imagetitle middle\">".$row['title']."</p></div>";
 			echo "<p class=\"\">".$text."</p></div>";
 		}
 		echo "<p><a class=\"black\" href=\"news/\">more...</a></p>";

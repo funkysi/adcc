@@ -8,8 +8,6 @@
 <body>
 <?php 
 	$area="gall";
-	$page="gall";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 	
 	
@@ -32,37 +30,35 @@
 	if ($pageNum > 1)
 	{
 	    $page = $pageNum - 8;
-	    $prev = "<a href=\"../../../gall/$page/$username/\">Prev</a>";
-	    $first = "<a href=\"../../../gall/1/$username/\">First&nbsp;Page</a>";
+	    $prev = " [<a href=\"../../../gall/$page/$username/\">Prev</a>] ";
+	    $first = " [<a href=\"../../../gall/1/$username/\">First Page</a>] ";
 	}
 	else
 	{
-	    $prev  = '';       
-	    $first = ''; 
+	    $prev  = '  ';       
+	    $first = '  '; 
 	}
 
 	if ($pageNum < $maxPage)
 	{
 	    $page = $pageNum + 8;
-	    $next = "<a href=\"../../../gall/$page/$username/\">Next</a>";
-	    $last = "<a href=\"../../../gall/$maxPage/$username/\">Last&nbsp;Page</a>";
+	    $next = " [<a href=\"../../../gall/$page/$username/\">Next</a>] ";
+	    $last = " [<a href=\"../../../gall/$maxPage/$username/\">Last Page</a>] ";
 	}
 	else
 	{
-	    $next = '';      
-	    $last = ''; 
+	    $next = ' ';      
+	    $last = '  '; 
 	}
-	echo "<div class=\"left-content padding\"><a name=\"content\"></a>";
-	#<span class=\"first firsticon\">".$first ."</span><span class=\"prev previcon\">". $prev ." </span> <span class=\"next nexticon\"> ". $next ."</span><span class=\"last lasticon\">". $last."</span><br/>";
-echo "<table><tr><td width=\"150px\" class=\"firsticon\">".$first."</td><td width=\"150px\" class=\"previcon\">".$prev."</td><td width=\"150px\" class=\"nexticon\">".$next."</td><td width=\"150px\" class=\"lasticon\">".$last."</td></tr></table>";
+	echo "<div class=\"left-content padding\"><a name=\"content\"></a><span class=\"first\">".$first ."</span><span class=\"prev\">". $prev ." </span> <span class=\"next\"> ". $next ."</span><span class=\"last\">". $last."</span><br/>";
+
 	for ($i =0;$i<1;$i++) 
 	{
 		echo"<h2 class=\"bold middle\">".$ans2[$i]['displayname']." ".$ans2[$i]['lastname']."'s Gallery </h2>";
 		if($ans2[$i]['about']!='') 
-		echo "<p class=\"padding middle person\"><a href=\"../../../author/".$username."/\">About the Photographer</a></p>";
+		echo "<p class=\"padding middle\"><a href=\"../../../author/".$username."/\">About the Photographer</a></p>";
 	}
-	if($username==$auth) echo "<p class=\"padding middle edit\"><a href=\"../../../gall/all_gall_edit.php\">Edit your gallery</a></p>";
-	echo "<p class=\"middle picture\"><a href=\"../../../gall/slideshowbyauthor.php?author=$username&status=1\">View Slide Show</a></p>";
+	echo "<p class=\"middle\"><a href=\"../../../gall/slideshowbyauthor.php?author=$username&status=1\">View Slide Show</a></p>";
 	echo "<table class=\"padding middle\"><tr><td>";
 	#loop through all records
 	for ($i =0;$i<8;$i++)

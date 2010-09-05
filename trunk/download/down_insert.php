@@ -1,17 +1,11 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 	$title=" - Edit Downloads";
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body>
 <?php 
 	$area="download";
-	$page="download";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
     <div class="left-content padding">
@@ -44,7 +38,7 @@
 	$form = "<form action=\"$self\" method=\"post\" enctype=\"multipart/form-data\"><fieldset>";
 	$form.= "<label for=\"comment\">Description of file: </label><textarea cols=\"35\" rows=\"5\" id=\"comment\" name=\"comment\" ></textarea><br/>";
 	$form.= "<label for=\"upload\">File to be uploaded: </label><input id=\"upload\" type=\"file\" name=\"ufile\" size=\"35\"  /><br/>";
-	$form.= "<label>&nbsp;</label><input id=\"add\" type=\"submit\" name=\"submit\" ";
+	$form.= "<label>&nbsp;</label><input type=\"submit\" name=\"submit\" ";
 	$form.= "value=\"Upload\" /> </fieldset></form>";
 	
 	if($status=="toobig") 

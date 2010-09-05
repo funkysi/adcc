@@ -5,9 +5,6 @@
 <body>
 <?php 
 	$area="competition";
-	$page="competition";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php';
 ?>
 <div class="left-content padding">
@@ -59,7 +56,7 @@
 	{
 		header("Location:index.php?id=$type");
 	}
-	if($numrows==0) echo "<h2 class=\"middle bold\">Competitions</h2><p class=\"middle\">No Competitions have been added yet.</p>";
+	if($numrows==0) echo "<p class=\"middle\">No Competitions have been added yet.</p>";
 	else
 	{
 		echo "<p class=\"middle\">Please select which competition you wish to view.</p><div class=\"middle\"><form action=\"$self\" method=\"post\"><fieldset>
@@ -72,12 +69,12 @@
 		}
 
 
-		echo "</select><br/><input class=\"picture\" type=\"submit\" name=\"submit\" value=\"View\" /></fieldset></form></div>";
+		echo "</select><br/><input type=\"submit\" name=\"submit\" value=\"View\" /></fieldset></form></div>";
 	}
 	echo "<h2 class=\"middle bold\"> ".$type." </h2>";
-	if($perm==true )
+	if(isset($_COOKIE['level_new']) and isset($_COOKIE['auth_new']) and $_COOKIE['level_new']==0 ) 
 	{
-		echo "<p class=\"middle edit\"><a href=\"comp2.php\">Edit Competitions</a></p><br/>";
+		echo "<p class=\"middle\"><a href=\"comp2.php\">Edit Competitions</a></p><br/>";
 	}
 	echo "<table width=\"90%\">";
 
@@ -111,10 +108,7 @@
 				</tr>";
 				$j=$row['round'];
 			}
-		echo "<tr class=\"".$odd."\"><td>";
-		if($row['imageid']!=0) echo "<a href=\"../image/".$row['username']."/".$row['imageid']."/\">".$row['image_title']." </a>";
-		else echo $row['image_title'];
-		echo "</td><td>".$row['displayname']." ".$row['lastname']."</td><td>".$row['score']."  </td></tr>";
+		echo "<tr class=\"".$odd."\"><td>".$row['image_title']." </td><td>".$row['displayname']." ".$row['lastname']."</td><td>".$row['score']."  </td></tr>";	
 	}
 	echo "</table>";
 	

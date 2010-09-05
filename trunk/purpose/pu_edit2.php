@@ -1,16 +1,12 @@
 <?php 
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie1.php';
+ 
 	$title=" - Edit Our Purpose"; 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
 ?>
 <body >
 <?php 
 	$area="purpose";
-	$page="purpose";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 	if(isset($_POST['delimage']))
 	{
@@ -28,7 +24,7 @@
 	{
 		$image = $_POST['image'];
 	}
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 	$unique_name = date("U").".jpg";
 
@@ -74,7 +70,7 @@
 		include $_SERVER["DOCUMENT_ROOT"].'/include/newemail.php';
 		sendemail("editpurpose",$auth,$text,$title);
 header("Location:index.php");exit();
-		
+		mysql_close();
 	}
  
 	include $_SERVER["DOCUMENT_ROOT"].'/include/footer.php';

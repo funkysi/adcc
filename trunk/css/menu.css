@@ -85,12 +85,16 @@ div#menu li.m, div#menu li.m:hover{
 /* End Content Area */
 
 .search{
-	margin-left:0px;
+	margin-left:5px;
 	margin-right:5px;
-
+	float:left;
+	clear:left;
 }
 .sidebar{
 	width:151px;
 	float:left;
 }
-
+.title{
+	background: url(../imgs/site/adccnew_ie6.png) no-repeat left center;
+	margin-left:10px;
+}

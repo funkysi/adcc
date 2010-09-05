@@ -1,7 +1,7 @@
 <?php
 function getdownload($id="")
 {
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 	$ans="";
 	$sql = "select * from download $id order by id desc ";
 	$rs = @mysql_query($sql) or die("Could not execute SQL query".$sql);
@@ -22,7 +22,7 @@ function getdownload($id="")
 }
 function getcount()
 {	
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$ans="";
 					$sql = "select count(*) as count from download order by id desc";
 				    $rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -34,7 +34,7 @@ function getcount()
 }
 function setdownload($ufile,$comment,$filesize,$disp)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "insert into download (ufile,comment,size,disp) 
 						values (\"$ufile\",\"$comment\",\"$filesize\",\"$disp\")"; 
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
@@ -42,7 +42,7 @@ function setdownload($ufile,$comment,$filesize,$disp)
 }
 function updatecount($id)
 {	
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$ans="";
 					$sql="update download set count = count+1  where ufile = '$id'";
 				    $rs = @mysql_query($sql) or die("Could not execute SQL query");
@@ -67,13 +67,13 @@ function filesize_format($bytes, $format = '', $force = '')
 }
 function deletedownload($id)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "DELETE FROM download WHERE id='$id'";
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
 }
 function updatedownload($disp,$ufile,$comment,$id)
 {
-					include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+					include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 					$sql = "UPDATE download SET disp='$disp', comment='$comment' WHERE id='$id'"; 
 					$rs = mysql_query($sql) or die ("Could not execute SQL query");
 }

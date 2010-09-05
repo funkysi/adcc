@@ -1,5 +1,5 @@
 <?php 
-
+	include $_SERVER["DOCUMENT_ROOT"].'/include/getcookie.php';
 
 	$title=" - Edit Meeting Schedule"; 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php'; 
@@ -7,12 +7,6 @@
 <body>
 <?php 
 	$area="schedule";
-	$page="schedule";
-	include $_SERVER["DOCUMENT_ROOT"].'/include/auth.php';
-	if($perm==false) 
-	{
-		header( "Location:../admin/index.php" ); exit();
-	}
 	include $_SERVER["DOCUMENT_ROOT"].'/include/menu.php'; 
 ?>
 <div class="left-content padding"><a name="content"></a>
@@ -20,7 +14,7 @@
 <?php
 
 	$id=$_GET['id'];
-	include_once $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+	include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
 
 	$query=" SELECT * FROM schedule WHERE id='$id'";
 	$result=mysql_query($query);
@@ -98,14 +92,14 @@
 		<input size ="5" type="text" name="year" value="<?php echo $year; ?>" /><br/>
 		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<label>&nbsp;</label>
-		<input id="update" type="submit" value="Update" />
+		<input type="submit" value="Update" />
 	</fieldset>
 </form>
 <form action="sch_delete.php?id=<?php echo $id; ?>" method="post">
 	<fieldset>
 		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<label>&nbsp;</label>
-		<input id="del" type="submit" value="Delete" />
+		<input type="submit" value="Delete" />
 	</fieldset>
 </form>
 <?php

@@ -34,7 +34,7 @@
 	_uacct = \"".getconfig('Analytics')."\";
 	urchinTracker();
 	</script>";
-	echo "";
+	echo "<br/>";
 
 	if ($level=="0") # if logged in with full access
 	##################################################
@@ -76,15 +76,13 @@ if(isset($news))
 	include $_SERVER["DOCUMENT_ROOT"].'/revision2.php';
 ?>
 <div class="footer middle">
-<p>Copyright &copy; <?php date_default_timezone_set('UTC'); echo date("Y"); echo " ".$sitetitle; ?>. </p>
+<p>Copyright &copy; <?php echo date("Y"); echo " ".$sitetitle; ?>. </p>
 <p>This site is maintained by <a href="mailto:<?php echo getconfig('email'); ?>?Subject=<?php echo $url; ?>"><?php echo getconfig('webmaster'); ?></a>. 
 Web design and code by <a href="mailto:funkysi1701@gmail.com?Subject=<?php echo $url; ?>">Simon Foster</a>. </p>
 <p>For details about other projects Simon is available for <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/fsi.php">please click here</a>.
 </p>
 <p><?php if($_SERVER['SERVER_NAME']!="arnoldanddistrictcameraclub.org.uk" and $_SERVER['SERVER_NAME']!="www.arnoldanddistrictcameraclub.org.uk") echo "Server: ".$_SERVER['SERVER_ADDR']."<br/>DB: ".$cfg['dbname']."<br/>Path: ".$_SERVER['DOCUMENT_ROOT']."<br/>Version: ".$svnversion."<br/>Date: ".$svndate."<br/>"; ?></p>
 </div>
-<?php if($_SERVER['SERVER_NAME']=="arnoldanddistrictcameraclub.org.uk" or $_SERVER['SERVER_NAME']=="www.arnoldanddistrictcameraclub.org.uk")
-{ ?>
 <!-- Piwik -->
 <script type="text/javascript">
 var pkBaseURL = (("https:" == document.location.protocol) ? "https://arnoldanddistrictcameraclub.org.uk/charts/piwik/" : "http://arnoldanddistrictcameraclub.org.uk/charts/piwik/");
@@ -96,4 +94,4 @@ piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
 } catch( err ) {}
 </script><noscript><p><img src="http://arnoldanddistrictcameraclub.org.uk/charts/piwik/piwik.php?idsite=2" style="border:0" alt=""/></p></noscript>
-<!-- End Piwik Tag --><?php } ?>
+<!-- End Piwik Tag -->

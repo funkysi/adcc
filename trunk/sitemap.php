@@ -181,24 +181,24 @@
 	        </url>   
 	    '; 
 	}
-	//$num_rows = mysql_num_rows(mysql_query("select * from image_store "));     
+	$num_rows = mysql_num_rows(mysql_query("select * from image_store "));     
   
 	//select them and put them into a dataset called $result   
-	//$query = "select * from image_store " ;   
-	//$result = mysql_query($query) or die("Query failed");
-	//for($i=0;$i<$num_rows; $i++)   
-	//{
-	//	$url_product = $url.'image/'.mysql_result($result,$i,"author_id")."/".mysql_result($result,$i,"id")."/";      
-	//	echo   
-	//   '  
-	//        <url>   
-	//        <loc>'.$url_product.'</loc>   
-	//        <lastmod>'.$displaydate.'</lastmod>   
-	//        <changefreq>daily</changefreq>   
-	//        <priority>0.2</priority>   
-	//        </url>   
-	//    '; 
-	//}
+	$query = "select * from image_store " ;   
+	$result = mysql_query($query) or die("Query failed");
+	for($i=0;$i<$num_rows; $i++)   
+	{
+		$url_product = $url.'image/'.mysql_result($result,$i,"author_id")."/".mysql_result($result,$i,"id")."/";      
+		echo   
+	    '  
+	        <url>   
+	        <loc>'.$url_product.'</loc>   
+	        <lastmod>'.$displaydate.'</lastmod>   
+	        <changefreq>daily</changefreq>   
+	        <priority>0.2</priority>   
+	        </url>   
+	    '; 
+	}
 	$num_rows = mysql_num_rows(mysql_query("select * from tags "));     
   
 	//select them and put them into a dataset called $result   

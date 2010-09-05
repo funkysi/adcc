@@ -8,8 +8,8 @@ OPTIMIZE TABLE imageJtag;
 OPTIMIZE TABLE download;
 OPTIMIZE TABLE content;
 OPTIMIZE TABLE config;
-OPTIMIZE TABLE permission;
-OPTIMIZE TABLE permission_pages;
+OPTIMIZE TABLE competition;
+OPTIMIZE TABLE entries;
 
 ANALYZE TABLE users;
 ANALYZE TABLE tags;
@@ -21,5 +21,5 @@ ANALYZE TABLE imageJtag;
 ANALYZE TABLE download;
 ANALYZE TABLE content;
 ANALYZE TABLE config;
-ANALYZE TABLE permission;
-ANALYZE TABLE permission_pages;
+ANALYZE TABLE competition;
+ANALYZE TABLE entries;

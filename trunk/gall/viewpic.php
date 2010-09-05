@@ -1,10 +1,5 @@
 <?php 
-	$username = $_REQUEST['username'];
-	$id = $_REQUEST['id'];
-	include $_SERVER["DOCUMENT_ROOT"].'/db/dbimages.php';
-
-	$ans = getimage($id);
-	$title=" - ".$ans[0]['caption']; 
+	$title=" - Gallery"; 
 	include $_SERVER["DOCUMENT_ROOT"].'/include/header2.php';  
 	$area="";
 ?>
@@ -13,6 +8,19 @@
 <a name="content"></a>
 
 <?php
+
+
+
+	$username = $_REQUEST['username'];
+	$id = $_REQUEST['id'];
+#include $_SERVER["DOCUMENT_ROOT"].'/include/connect.php';
+
+#create the SQL query
+	include $_SERVER["DOCUMENT_ROOT"].'/db/dbimages.php';
+
+	$ans = getimage($id);
+
+
 
 	for ($i =0;$i<1;$i++) 
 	{
@@ -26,7 +34,7 @@
 		
 		viewimage($id,$count);
 	}
-	echo "</div><div class=\"padding previcon middle\"><a href=\"javascript:history.back(1)\">Back</a></div>";
+	echo "</div><div class=\"padding middle\"><a href=\"javascript:history.back(1)\">Back</a></div>";
 ?>
 </div>
 <?php 
