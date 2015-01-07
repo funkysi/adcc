@@ -2,3 +2,14 @@ This is the README file.
 -----------------------
 +++++++++++++++++++++++
 ========================
+This is the code for the ADCC Arnold and District Camera Club website. Created in php/mysql it is all handcoded.
+
+If doing this project today I would do it very differently, no OOP, and is buggy in places but the club was very happy with it and still use it to this day.
+
+Sites key features are:
+
+login system
+upload of galleries
+news articles
+events pages
+all pages editable by logging in with the right user account
